@@ -145,8 +145,10 @@ namespace Museo
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlTop);
             this.Controls.Add(this.pnlBottom);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmViewArtistBibliography";
-            this.Text = "FrmViewArtist";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Voir les oeuvres d\'un artiste";
             this.Load += new System.EventHandler(this.FrmViewArtist_Load);
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();

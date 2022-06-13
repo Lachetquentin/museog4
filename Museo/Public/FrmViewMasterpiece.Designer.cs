@@ -199,9 +199,10 @@ namespace Museo
             this.Controls.Add(this.pnlTop);
             this.Controls.Add(this.pnlBottom);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmViewMasterpiece";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmViewMasterpiece";
+            this.Text = "Voir les oeuvres";
             this.Load += new System.EventHandler(this.FrmView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picImage)).EndInit();
             this.pnlTop.ResumeLayout(false);

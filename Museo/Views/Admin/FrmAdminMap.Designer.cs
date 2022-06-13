@@ -118,6 +118,7 @@ namespace Museo
             this.btnFloorZero.TabIndex = 5;
             this.btnFloorZero.Text = "RDC";
             this.btnFloorZero.UseVisualStyleBackColor = false;
+            this.btnFloorZero.Click += new System.EventHandler(this.btnFloorZero_Click);
             // 
             // btnSecondFloor
             // 
@@ -132,6 +133,7 @@ namespace Museo
             this.btnSecondFloor.TabIndex = 7;
             this.btnSecondFloor.Text = "2ème étage";
             this.btnSecondFloor.UseVisualStyleBackColor = false;
+            this.btnSecondFloor.Click += new System.EventHandler(this.btnSecondFloor_Click);
             // 
             // btnFirstFloor
             // 
@@ -146,6 +148,7 @@ namespace Museo
             this.btnFirstFloor.TabIndex = 6;
             this.btnFirstFloor.Text = "1er étage";
             this.btnFirstFloor.UseVisualStyleBackColor = false;
+            this.btnFirstFloor.Click += new System.EventHandler(this.btnFirstFloor_Click);
             // 
             // btnEdit
             // 
@@ -169,8 +172,9 @@ namespace Museo
             this.ClientSize = new System.Drawing.Size(991, 600);
             this.Controls.Add(this.pnlMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAdminMap";
-            this.Text = "FrmAdminMap";
+            this.Text = "Voir la cartographie";
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMap)).EndInit();

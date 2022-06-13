@@ -34,11 +34,11 @@ namespace Museo
             this.pnlTop = new System.Windows.Forms.Panel();
             this.picImage = new System.Windows.Forms.PictureBox();
             this.tblMain = new System.Windows.Forms.TableLayoutPanel();
-            this.pnlBottom = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnArtistBibliography = new System.Windows.Forms.Button();
             this.lblNameDob = new System.Windows.Forms.Label();
             this.lblDesc = new System.Windows.Forms.Label();
-            this.btnArtistBibliography = new System.Windows.Forms.Button();
+            this.pnlBottom = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
@@ -92,15 +92,6 @@ namespace Museo
             this.tblMain.Size = new System.Drawing.Size(1128, 441);
             this.tblMain.TabIndex = 14;
             // 
-            // pnlBottom
-            // 
-            this.pnlBottom.BackColor = System.Drawing.Color.SkyBlue;
-            this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBottom.Location = new System.Drawing.Point(0, 506);
-            this.pnlBottom.Name = "pnlBottom";
-            this.pnlBottom.Size = new System.Drawing.Size(1128, 15);
-            this.pnlBottom.TabIndex = 15;
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
@@ -117,6 +108,21 @@ namespace Museo
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(840, 435);
             this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // btnArtistBibliography
+            // 
+            this.btnArtistBibliography.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnArtistBibliography.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnArtistBibliography.FlatAppearance.BorderSize = 0;
+            this.btnArtistBibliography.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArtistBibliography.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnArtistBibliography.Location = new System.Drawing.Point(3, 68);
+            this.btnArtistBibliography.Name = "btnArtistBibliography";
+            this.btnArtistBibliography.Size = new System.Drawing.Size(834, 59);
+            this.btnArtistBibliography.TabIndex = 5;
+            this.btnArtistBibliography.Text = "Voir les oeuvres";
+            this.btnArtistBibliography.UseVisualStyleBackColor = false;
+            this.btnArtistBibliography.Click += new System.EventHandler(this.btnArtistBibliography_Click);
             // 
             // lblNameDob
             // 
@@ -139,20 +145,14 @@ namespace Museo
             this.lblDesc.TabIndex = 1;
             this.lblDesc.Text = "Desc";
             // 
-            // btnArtistBibliography
+            // pnlBottom
             // 
-            this.btnArtistBibliography.BackColor = System.Drawing.Color.SkyBlue;
-            this.btnArtistBibliography.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnArtistBibliography.FlatAppearance.BorderSize = 0;
-            this.btnArtistBibliography.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnArtistBibliography.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnArtistBibliography.Location = new System.Drawing.Point(3, 68);
-            this.btnArtistBibliography.Name = "btnArtistBibliography";
-            this.btnArtistBibliography.Size = new System.Drawing.Size(834, 59);
-            this.btnArtistBibliography.TabIndex = 5;
-            this.btnArtistBibliography.Text = "Voir les oeuvres";
-            this.btnArtistBibliography.UseVisualStyleBackColor = false;
-            this.btnArtistBibliography.Click += new System.EventHandler(this.btnArtistBibliography_Click);
+            this.pnlBottom.BackColor = System.Drawing.Color.SkyBlue;
+            this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlBottom.Location = new System.Drawing.Point(0, 506);
+            this.pnlBottom.Name = "pnlBottom";
+            this.pnlBottom.Size = new System.Drawing.Size(1128, 15);
+            this.pnlBottom.TabIndex = 15;
             // 
             // FrmViewArtist
             // 
@@ -163,9 +163,10 @@ namespace Museo
             this.Controls.Add(this.pnlTop);
             this.Controls.Add(this.pnlBottom);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmViewArtist";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmViewArtist";
+            this.Text = "Voir un artiste";
             this.Load += new System.EventHandler(this.FrmViewArtist_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.pnlTop.ResumeLayout(false);

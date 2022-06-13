@@ -29,9 +29,12 @@ namespace Museo
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdminUpdateMasterpiece));
             this.pnlTop = new System.Windows.Forms.Panel();
             this.lblAdmin = new System.Windows.Forms.Label();
             this.grpUpdate = new System.Windows.Forms.GroupBox();
+            this.txtURL = new System.Windows.Forms.TextBox();
+            this.lblURL = new System.Windows.Forms.Label();
             this.txtNcda = new System.Windows.Forms.TextBox();
             this.txtCreationYear = new System.Windows.Forms.TextBox();
             this.cbState = new System.Windows.Forms.ComboBox();
@@ -57,8 +60,6 @@ namespace Museo
             this.lblName = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.txtURL = new System.Windows.Forms.TextBox();
-            this.lblURL = new System.Windows.Forms.Label();
             this.pnlTop.SuspendLayout();
             this.grpUpdate.SuspendLayout();
             this.SuspendLayout();
@@ -120,6 +121,23 @@ namespace Museo
             this.grpUpdate.TabIndex = 3;
             this.grpUpdate.TabStop = false;
             this.grpUpdate.Text = "Modification";
+            // 
+            // txtURL
+            // 
+            this.txtURL.Location = new System.Drawing.Point(565, 262);
+            this.txtURL.Name = "txtURL";
+            this.txtURL.Size = new System.Drawing.Size(271, 37);
+            this.txtURL.TabIndex = 37;
+            // 
+            // lblURL
+            // 
+            this.lblURL.AutoSize = true;
+            this.lblURL.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblURL.Location = new System.Drawing.Point(565, 238);
+            this.lblURL.Name = "lblURL";
+            this.lblURL.Size = new System.Drawing.Size(43, 19);
+            this.lblURL.TabIndex = 36;
+            this.lblURL.Text = "URL :";
             // 
             // txtNcda
             // 
@@ -374,23 +392,6 @@ namespace Museo
             this.txtName.Size = new System.Drawing.Size(271, 37);
             this.txtName.TabIndex = 1;
             // 
-            // txtURL
-            // 
-            this.txtURL.Location = new System.Drawing.Point(565, 262);
-            this.txtURL.Name = "txtURL";
-            this.txtURL.Size = new System.Drawing.Size(271, 37);
-            this.txtURL.TabIndex = 37;
-            // 
-            // lblURL
-            // 
-            this.lblURL.AutoSize = true;
-            this.lblURL.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblURL.Location = new System.Drawing.Point(565, 238);
-            this.lblURL.Name = "lblURL";
-            this.lblURL.Size = new System.Drawing.Size(43, 19);
-            this.lblURL.TabIndex = 36;
-            this.lblURL.Text = "URL :";
-            // 
             // FrmAdminUpdateMasterpiece
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -399,9 +400,11 @@ namespace Museo
             this.ClientSize = new System.Drawing.Size(861, 538);
             this.Controls.Add(this.grpUpdate);
             this.Controls.Add(this.pnlTop);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAdminUpdateMasterpiece";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmAdminUpdateMasterpiece";
+            this.Text = "Modification d\'une oeuvre";
             this.Load += new System.EventHandler(this.FrmAdminUpdateMasterpiece_Load);
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();

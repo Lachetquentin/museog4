@@ -104,8 +104,8 @@ namespace Museo
                 return;
             }
 
-            //FrmAdminUpdateExhibition frm = new FrmAdminUpdateExhibition(selectedExhibitionId);
-            //frm.ShowDialog(this);
+            FrmAdminUpdateExhibition frm = new FrmAdminUpdateExhibition(selectedExhibitionId, RefreshExhibitions);
+            frm.ShowDialog();
         }
 
         private void mnuItemDelete_Click(object sender, EventArgs e)
@@ -122,9 +122,16 @@ namespace Museo
             var Result = MessageBox.Show("Voulez-vous vraiment supprimer cette expositions ?", "Supprimer Expositions", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (Result == DialogResult.Yes)
             {
-                DataLayer.ExhibitionData.DeleteExhibition(selectedExhibitionId);
-                RefreshExhibitions();
-                MessageBox.Show("Artiste supprimé !");
+                if (DataLayer.ExhibitionData.DeleteExhibition(selectedExhibitionId))
+                {
+                    RefreshExhibitions();
+                    MessageBox.Show("Exposition supprimé !");
+                }
+                else
+                {
+                    FrmMain.MessageShow("ForeignKeys");
+                    return;
+                } 
             }
             else if (Result == DialogResult.No)
             {

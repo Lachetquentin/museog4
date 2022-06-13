@@ -19,8 +19,23 @@ namespace Museo
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            //FrmAdminLocations frm = new FrmAdminLocations();
-            //frm.ShowDialog();
+            FrmAdminLocations frm = new FrmAdminLocations();
+            frm.ShowDialog();
+        }
+
+        private void btnFloorZero_Click(object sender, EventArgs e)
+        {
+            picMap.Image = Properties.Resources.plan_museo_1;
+        }
+
+        private void btnFirstFloor_Click(object sender, EventArgs e)
+        {
+            picMap.Image = Properties.Resources.plan_museo_2;
+        }
+
+        private void btnSecondFloor_Click(object sender, EventArgs e)
+        {
+            picMap.Image = Properties.Resources.plan_museo_3;
         }
     }
 }

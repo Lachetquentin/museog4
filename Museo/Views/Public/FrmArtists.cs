@@ -29,6 +29,7 @@ namespace Museo
             dgvArtists.ColumnHeadersDefaultCellStyle.SelectionBackColor = dgvArtists.ColumnHeadersDefaultCellStyle.BackColor;
             dgvArtists.Columns["ArtistId"].Visible = false;
             dgvArtists.Columns["Isni"].Visible = false;
+            dgvArtists.Columns["Url"].Visible = false;
             dgvArtists.Columns["Name"].HeaderText = "Nom";
             dgvArtists.Columns["Desc"].HeaderText = "Description";
             dgvArtists.Columns["Dob"].HeaderText = "Date de naissance";
@@ -43,14 +44,14 @@ namespace Museo
         private void ViewArtist()
         {
             if (selectedArtistId == 0) { return; }
-            FrmViewArtist frm = new FrmViewArtist(selectedArtistId);
+            FrmViewArtist frm = new FrmViewArtist(selectedArtistId, RefreshArtists);
             frm.ShowDialog();
         }
 
         private void ViewArtist(int artistId)
         {
             if (selectedArtistId == 0) { return; }
-            FrmViewArtist frm = new FrmViewArtist(artistId);
+            FrmViewArtist frm = new FrmViewArtist(artistId, RefreshArtists);
             frm.ShowDialog();
         }
 

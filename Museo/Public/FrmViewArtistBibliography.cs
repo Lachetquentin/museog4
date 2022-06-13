@@ -56,7 +56,7 @@ namespace Museo
 
         private void ViewMasterpiece(int mpId)
         {
-            if (selectedMasterpieceId == 0) { return; }
+            if (mpId == 0) { return; }
             FrmViewMasterpiece frm = new FrmViewMasterpiece(mpId);
             frm.ShowDialog();
         }

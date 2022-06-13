@@ -34,9 +34,9 @@ namespace Museo
             this.lblHome = new System.Windows.Forms.Label();
             this.picMap = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnFloorZero = new System.Windows.Forms.Button();
-            this.btnFirstFloor = new System.Windows.Forms.Button();
             this.btnSecondFloor = new System.Windows.Forms.Button();
+            this.btnFirstFloor = new System.Windows.Forms.Button();
+            this.btnFloorZero = new System.Windows.Forms.Button();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMap)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -103,20 +103,20 @@ namespace Museo
             this.tableLayoutPanel1.Size = new System.Drawing.Size(985, 48);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
-            // btnFloorZero
+            // btnSecondFloor
             // 
-            this.btnFloorZero.BackColor = System.Drawing.Color.SkyBlue;
-            this.btnFloorZero.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnFloorZero.FlatAppearance.BorderSize = 0;
-            this.btnFloorZero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFloorZero.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnFloorZero.Location = new System.Drawing.Point(3, 3);
-            this.btnFloorZero.Name = "btnFloorZero";
-            this.btnFloorZero.Size = new System.Drawing.Size(322, 42);
-            this.btnFloorZero.TabIndex = 5;
-            this.btnFloorZero.Text = "RDC";
-            this.btnFloorZero.UseVisualStyleBackColor = false;
-            this.btnFloorZero.Click += new System.EventHandler(this.btnFloorZero_Click);
+            this.btnSecondFloor.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnSecondFloor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSecondFloor.FlatAppearance.BorderSize = 0;
+            this.btnSecondFloor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSecondFloor.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSecondFloor.Location = new System.Drawing.Point(659, 3);
+            this.btnSecondFloor.Name = "btnSecondFloor";
+            this.btnSecondFloor.Size = new System.Drawing.Size(323, 42);
+            this.btnSecondFloor.TabIndex = 7;
+            this.btnSecondFloor.Text = "2ème étage";
+            this.btnSecondFloor.UseVisualStyleBackColor = false;
+            this.btnSecondFloor.Click += new System.EventHandler(this.btnSecondFloor_Click);
             // 
             // btnFirstFloor
             // 
@@ -133,20 +133,20 @@ namespace Museo
             this.btnFirstFloor.UseVisualStyleBackColor = false;
             this.btnFirstFloor.Click += new System.EventHandler(this.btnFirstFloor_Click);
             // 
-            // btnSecondFloor
+            // btnFloorZero
             // 
-            this.btnSecondFloor.BackColor = System.Drawing.Color.SkyBlue;
-            this.btnSecondFloor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSecondFloor.FlatAppearance.BorderSize = 0;
-            this.btnSecondFloor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSecondFloor.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSecondFloor.Location = new System.Drawing.Point(659, 3);
-            this.btnSecondFloor.Name = "btnSecondFloor";
-            this.btnSecondFloor.Size = new System.Drawing.Size(323, 42);
-            this.btnSecondFloor.TabIndex = 7;
-            this.btnSecondFloor.Text = "2ème étage";
-            this.btnSecondFloor.UseVisualStyleBackColor = false;
-            this.btnSecondFloor.Click += new System.EventHandler(this.btnSecondFloor_Click);
+            this.btnFloorZero.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnFloorZero.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnFloorZero.FlatAppearance.BorderSize = 0;
+            this.btnFloorZero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFloorZero.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnFloorZero.Location = new System.Drawing.Point(3, 3);
+            this.btnFloorZero.Name = "btnFloorZero";
+            this.btnFloorZero.Size = new System.Drawing.Size(322, 42);
+            this.btnFloorZero.TabIndex = 5;
+            this.btnFloorZero.Text = "RDC";
+            this.btnFloorZero.UseVisualStyleBackColor = false;
+            this.btnFloorZero.Click += new System.EventHandler(this.btnFloorZero_Click);
             // 
             // FrmMap
             // 
@@ -155,8 +155,9 @@ namespace Museo
             this.ClientSize = new System.Drawing.Size(991, 600);
             this.Controls.Add(this.pnlMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMap";
-            this.Text = "FrmMap";
+            this.Text = "Voir la cartographie";
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMap)).EndInit();

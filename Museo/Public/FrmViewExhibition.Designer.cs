@@ -37,12 +37,14 @@ namespace Museo
             this.pnlTop = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlBottom = new System.Windows.Forms.Panel();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.mnuOptions = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuItemView = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMasterpieces)).BeginInit();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlBottom.SuspendLayout();
             this.mnuOptions.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +55,7 @@ namespace Museo
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(0, 65);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(1128, 441);
+            this.pnlMain.Size = new System.Drawing.Size(1128, 408);
             this.pnlMain.TabIndex = 8;
             // 
             // dgvMasterpieces
@@ -76,7 +78,7 @@ namespace Museo
             this.dgvMasterpieces.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvMasterpieces.RowTemplate.Height = 25;
             this.dgvMasterpieces.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMasterpieces.Size = new System.Drawing.Size(1128, 390);
+            this.dgvMasterpieces.Size = new System.Drawing.Size(1128, 357);
             this.dgvMasterpieces.TabIndex = 7;
             this.dgvMasterpieces.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMasterpieces_CellDoubleClick);
             this.dgvMasterpieces.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvMasterpieces_CellMouseDown);
@@ -117,11 +119,26 @@ namespace Museo
             // pnlBottom
             // 
             this.pnlBottom.BackColor = System.Drawing.Color.SkyBlue;
+            this.pnlBottom.Controls.Add(this.btnAdd);
             this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBottom.Location = new System.Drawing.Point(0, 506);
+            this.pnlBottom.Location = new System.Drawing.Point(0, 473);
             this.pnlBottom.Name = "pnlBottom";
-            this.pnlBottom.Size = new System.Drawing.Size(1128, 15);
+            this.pnlBottom.Size = new System.Drawing.Size(1128, 48);
             this.pnlBottom.TabIndex = 9;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAdd.Location = new System.Drawing.Point(1004, 0);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(124, 48);
+            this.btnAdd.TabIndex = 7;
+            this.btnAdd.Text = "Ajouter";
+            this.btnAdd.UseVisualStyleBackColor = false;
             // 
             // mnuOptions
             // 
@@ -145,14 +162,17 @@ namespace Museo
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlTop);
             this.Controls.Add(this.pnlBottom);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmViewExhibition";
-            this.Text = "FrmViewExhibition";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Voir les expositions";
             this.Load += new System.EventHandler(this.FrmViewExhibition_Load);
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMasterpieces)).EndInit();
             this.pnlTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlBottom.ResumeLayout(false);
             this.mnuOptions.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -168,5 +188,6 @@ namespace Museo
         internal System.Windows.Forms.DataGridView dgvMasterpieces;
         private System.Windows.Forms.ContextMenuStrip mnuOptions;
         private System.Windows.Forms.ToolStripMenuItem mnuItemView;
+        private System.Windows.Forms.Button btnAdd;
     }
 }

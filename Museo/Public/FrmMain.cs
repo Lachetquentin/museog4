@@ -112,6 +112,15 @@ namespace Museo
                 case "DeletingYourself":
                     msg = "Vous ne pouvez pas vous supprimez vous-même !";
                     break;
+                case "ForeignKeys":
+                    msg = "Ce que vous avez selectionné est relié à une oeuvre existante !";
+                    break;
+                case "UpdateFailed":
+                    msg = "La mise à jour à échoué !";
+                    break;
+                case "InvalidDate":
+                    msg = "La saisie de la date est incorrecte !";
+                    break;
                 default:
                     msg = "Error : " + msgCode;
                     break;

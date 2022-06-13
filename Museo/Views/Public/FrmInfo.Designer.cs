@@ -196,8 +196,9 @@ namespace Museo
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlBottom);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmInfo";
-            this.Text = "FrmInfo";
+            this.Text = "Voir les informations du logiciel";
             this.Load += new System.EventHandler(this.FrmInfo_Load);
             this.mnuOptions.ResumeLayout(false);
             this.pnlMain.ResumeLayout(false);

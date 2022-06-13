@@ -297,6 +297,7 @@ namespace Museo
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1090, 663);
             this.Name = "FrmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Museo";
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.pnlTop.ResumeLayout(false);

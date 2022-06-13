@@ -9,19 +9,28 @@ namespace Museo
     {
         private int mpId;
         private Masterpiece mp = new Masterpiece();
-        public FrmAdminUpdateMasterpiece(int selectedMasterpieceId)
+        private readonly Action _refreshMasterpieces;
+        public FrmAdminUpdateMasterpiece(int selectedMasterpieceId, Action refreshMasterpieces)
         {
             InitializeComponent();
             mpId = selectedMasterpieceId;
+            _refreshMasterpieces = refreshMasterpieces;
             mp = DataLayer.MasterpieceData.GetMasterpieceById(mpId);
             Text = "Modification d'une oeuvre ";
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            DataLayer.MasterpieceData.UpdateMasterpiece(mpId, (Artist)cbAuthor.SelectedItem, (Exhibition)cbExhibition.SelectedItem, (MpState)cbState.SelectedItem, (MpStatus)cbStatus.SelectedItem, (Location)cbLocation.SelectedItem, (Owner)cbOwner.SelectedItem, txtName.Text, Convert.ToInt32(txtCreationYear.Text), txtDesc.Text, txtMemo.Text, txtURL.Text, txtNcda.Text);
-            ((FrmAdminMasterpieces)Owner).RefreshMasterpieces();
-            this.Close();
+            if (DataLayer.MasterpieceData.UpdateMasterpiece(mpId, (Artist)cbAuthor.SelectedItem, (Exhibition)cbExhibition.SelectedItem, (MpState)cbState.SelectedItem, (MpStatus)cbStatus.SelectedItem, (Location)cbLocation.SelectedItem, (Owner)cbOwner.SelectedItem, txtName.Text, Convert.ToInt32(txtCreationYear.Text), txtDesc.Text, txtMemo.Text, txtURL.Text, txtNcda.Text))
+            {
+                MessageBox.Show("L'oeuvre à bien été mise à jour !");
+                _refreshMasterpieces();
+                Close(); 
+            } 
+            else
+            {
+                FrmMain.MessageShow("UpdateFailed");
+            }
         }
 
         private void btnReset_Click(object sender, EventArgs e)

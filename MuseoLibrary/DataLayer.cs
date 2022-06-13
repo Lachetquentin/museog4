@@ -9,7 +9,7 @@ namespace MuseoLibrary
         public static IDatabase s_db = new Database(new MySql.Data.MySqlClient.MySqlConnection(Properties.Resources.ConnString));
         public static class ArtistData
         {
-            public static void AddArtist(string name, DateTime dob, string desc, string isni)
+            public static void AddArtist(string name, DateTime dob, string desc, string url, string isni)
             {
                 try
                 {
@@ -19,6 +19,7 @@ namespace MuseoLibrary
                         Name = name,
                         Dob = dob.Date.ToLocalTime(),
                         Desc = desc,
+                        URL = url,
                         Isni = isni
                     };
                     s_db.Insert(artist);
@@ -37,14 +38,15 @@ namespace MuseoLibrary
                 return artist != null ? (artistFound = true) : artistFound;
             }
 
-            public static void DeleteArtist(int selectedArtistId)
+            public static bool DeleteArtist(int selectedArtistId)
             {
                 try
                 {
                     s_db.Connection.Open();
                     s_db.Delete<Artist>(selectedArtistId);
+                    return true;
                 }
-                catch (Exception) { }
+                catch (Exception) { return false; }
                 finally { s_db.Connection.Close(); }
             }
 
@@ -119,7 +121,7 @@ namespace MuseoLibrary
                 return listofArtists;
             }
 
-            public static void UpdateArtist(int artistId, string name, DateTime dob, string desc, string isni)
+            public static bool UpdateArtist(int artistId, string name, DateTime dob, string desc, string url, string isni)
             {
                 try
                 {
@@ -128,10 +130,12 @@ namespace MuseoLibrary
                     artist.Name = name;
                     artist.Dob = dob.Date.ToLocalTime();
                     artist.Desc = desc;
+                    artist.URL = url;
                     artist.Isni = isni;
                     s_db.Update(artist);
+                    return true;
                 }
-                catch (Exception) { }
+                catch (Exception) { return false; }
                 finally { s_db.Connection.Close(); }
             }
         }
@@ -164,17 +168,14 @@ namespace MuseoLibrary
 
             public static bool DeleteExhibition(int selectedExhibitionId)
             {
-                bool success = false;
                 try
                 {
                     s_db.Connection.Open();
                     s_db.Delete<Exhibition>(selectedExhibitionId);
-                    success = true;
+                    return true;
                 }
-                catch (Exception) { }
+                catch (Exception) { return false; }
                 finally { s_db.Connection.Close(); }
-
-                return success;
             }
 
             public static List<Exhibition> GetAllExhibitions()
@@ -222,7 +223,7 @@ namespace MuseoLibrary
                 return exhibition;
             }
 
-            public static void UpdateExhibition(int exhibitionId, string name)
+            public static bool UpdateExhibition(int exhibitionId, string name)
             {
                 try
                 {
@@ -230,8 +231,9 @@ namespace MuseoLibrary
                     var exhibition = s_db.SingleById<Exhibition>(exhibitionId);
                     exhibition.Name = name;
                     s_db.Update(exhibition);
+                    return true;
                 }
-                catch (Exception) { }
+                catch (Exception) { return false; }
                 finally { s_db.Connection.Close(); }
             }
         };
@@ -292,7 +294,7 @@ namespace MuseoLibrary
                 return location;
             }
 
-            public static void UpdateLocation(int locationId, string name)
+            public static bool UpdateLocation(int locationId, string name)
             {
                 try
                 {
@@ -300,8 +302,9 @@ namespace MuseoLibrary
                     var location = s_db.SingleById<Location>(locationId);
                     location.Name = name;
                     s_db.Update(location);
+                    return true;
                 }
-                catch (Exception) { }
+                catch (Exception) { return false; }
                 finally { s_db.Connection.Close(); }
             }
         };
@@ -470,7 +473,7 @@ namespace MuseoLibrary
                 return listofMasterpieces;
             }
 
-            public static void UpdateMasterpiece(int masterpieceId, Artist artist, Exhibition exhibition, MpState state, MpStatus status, Location location, Owner owner, string name, int createYear, string desc, string memo, string url, string ncda)
+            public static bool UpdateMasterpiece(int masterpieceId, Artist artist, Exhibition exhibition, MpState state, MpStatus status, Location location, Owner owner, string name, int createYear, string desc, string memo, string url, string ncda)
             {
                 try
                 {
@@ -489,11 +492,13 @@ namespace MuseoLibrary
                     mp.URL = url;
                     mp.Ncda = ncda;
                     s_db.Update(mp);
+                    return true;
                 }
-                catch (Exception) { }
+                catch (Exception) { return false;  }
                 finally { s_db.Connection.Close(); }
             }
-        }        public static class MpStateData
+        }        
+        public static class MpStateData
         {
             public static void AddState(string name)
             {
@@ -580,7 +585,7 @@ namespace MuseoLibrary
                 return state;
             }
 
-            public static void UpdateState(int stateId, string name)
+            public static bool UpdateState(int stateId, string name)
             {
                 try
                 {
@@ -588,8 +593,9 @@ namespace MuseoLibrary
                     var state = s_db.SingleById<MpState>(stateId);
                     state.Name = name;
                     s_db.Update(state);
+                    return true;
                 }
-                catch (Exception) { }
+                catch (Exception) { return false; }
                 finally { s_db.Connection.Close(); }
             }
         }
@@ -680,7 +686,7 @@ namespace MuseoLibrary
                 return status;
             }
 
-            public static void UpdateStatus(int statusId, string name)
+            public static bool UpdateStatus(int statusId, string name)
             {
                 try
                 {
@@ -688,8 +694,9 @@ namespace MuseoLibrary
                     var status = s_db.SingleById<MpStatus>(statusId);
                     status.Name = name;
                     s_db.Update(status);
+                    return true;
                 }
-                catch (Exception) { }
+                catch (Exception) { return false; }
                 finally { s_db.Connection.Close(); }
             }
         };
@@ -723,14 +730,15 @@ namespace MuseoLibrary
                 return owner != null ? (ownerFound = true) : ownerFound;
             }
 
-            public static void DeleteOwner(int selectedOwnerId)
+            public static bool DeleteOwner(int selectedOwnerId)
             {
                 try
                 {
                     s_db.Connection.Open();
                     s_db.Delete<Owner>(selectedOwnerId);
+                    return true;
                 }
-                catch (Exception) { }
+                catch (Exception) { return false; }
                 finally { s_db.Connection.Close(); }
             }
 

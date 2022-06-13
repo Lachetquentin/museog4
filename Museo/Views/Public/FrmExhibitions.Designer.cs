@@ -123,8 +123,9 @@ namespace Museo
             this.Controls.Add(this.dgvExhibitions);
             this.Controls.Add(this.pnlBottom);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmExhibitions";
-            this.Text = "FrmExhibitions";
+            this.Text = "Voir les expositions";
             this.Load += new System.EventHandler(this.FrmExhibitions_Load);
             this.pnlBottom.ResumeLayout(false);
             this.pnlBottom.PerformLayout();

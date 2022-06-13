@@ -32,11 +32,11 @@ namespace Museo
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmArtists));
             this.pnlBottom = new System.Windows.Forms.Panel();
+            this.lblNbOfArtists = new System.Windows.Forms.Label();
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.mnuOptions = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuItemView = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvArtists = new System.Windows.Forms.DataGridView();
-            this.lblNbOfArtists = new System.Windows.Forms.Label();
             this.pnlBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.mnuOptions.SuspendLayout();
@@ -53,6 +53,16 @@ namespace Museo
             this.pnlBottom.Name = "pnlBottom";
             this.pnlBottom.Size = new System.Drawing.Size(991, 83);
             this.pnlBottom.TabIndex = 9;
+            // 
+            // lblNbOfArtists
+            // 
+            this.lblNbOfArtists.AutoSize = true;
+            this.lblNbOfArtists.Font = new System.Drawing.Font("Segoe Script", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblNbOfArtists.Location = new System.Drawing.Point(12, 11);
+            this.lblNbOfArtists.Name = "lblNbOfArtists";
+            this.lblNbOfArtists.Size = new System.Drawing.Size(75, 30);
+            this.lblNbOfArtists.TabIndex = 1;
+            this.lblNbOfArtists.Text = "Count";
             // 
             // picLogo
             // 
@@ -105,16 +115,6 @@ namespace Museo
             this.dgvArtists.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvArtists_CellMouseDown);
             this.dgvArtists.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvArtists_MouseClick);
             // 
-            // lblNbOfArtists
-            // 
-            this.lblNbOfArtists.AutoSize = true;
-            this.lblNbOfArtists.Font = new System.Drawing.Font("Segoe Script", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNbOfArtists.Location = new System.Drawing.Point(12, 11);
-            this.lblNbOfArtists.Name = "lblNbOfArtists";
-            this.lblNbOfArtists.Size = new System.Drawing.Size(75, 30);
-            this.lblNbOfArtists.TabIndex = 1;
-            this.lblNbOfArtists.Text = "Count";
-            // 
             // FrmArtists
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -123,8 +123,9 @@ namespace Museo
             this.Controls.Add(this.pnlBottom);
             this.Controls.Add(this.dgvArtists);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmArtists";
-            this.Text = "FrmArtists";
+            this.Text = "Voir les artistes";
             this.Load += new System.EventHandler(this.FrmExhibitions_Load);
             this.pnlBottom.ResumeLayout(false);
             this.pnlBottom.PerformLayout();

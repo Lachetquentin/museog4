@@ -115,21 +115,21 @@ namespace Museo
             // mnuItemView
             // 
             this.mnuItemView.Name = "mnuItemView";
-            this.mnuItemView.Size = new System.Drawing.Size(180, 22);
+            this.mnuItemView.Size = new System.Drawing.Size(129, 22);
             this.mnuItemView.Text = "Voir";
             this.mnuItemView.Click += new System.EventHandler(this.mnuItemView_Click);
             // 
             // mnuItemUpdate
             // 
             this.mnuItemUpdate.Name = "mnuItemUpdate";
-            this.mnuItemUpdate.Size = new System.Drawing.Size(180, 22);
+            this.mnuItemUpdate.Size = new System.Drawing.Size(129, 22);
             this.mnuItemUpdate.Text = "Modifier";
             this.mnuItemUpdate.Click += new System.EventHandler(this.mnuItemUpdate_Click);
             // 
             // mnuItemDelete
             // 
             this.mnuItemDelete.Name = "mnuItemDelete";
-            this.mnuItemDelete.Size = new System.Drawing.Size(180, 22);
+            this.mnuItemDelete.Size = new System.Drawing.Size(129, 22);
             this.mnuItemDelete.Text = "Supprimer";
             this.mnuItemDelete.Click += new System.EventHandler(this.mnuItemDelete_Click);
             // 
@@ -141,8 +141,9 @@ namespace Museo
             this.Controls.Add(this.pnlBottom);
             this.Controls.Add(this.dgvExhibitions);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAdminExhibitions";
-            this.Text = "FrmAdminExhibitions";
+            this.Text = "Voir les expositions";
             this.Load += new System.EventHandler(this.FrmAdminExhibitions_Load);
             this.pnlBottom.ResumeLayout(false);
             this.pnlBottom.PerformLayout();

@@ -58,8 +58,8 @@ namespace Museo
                 return;
             }
 
-            FrmAdminUpdateMasterpiece frm = new FrmAdminUpdateMasterpiece(selectedMasterpieceId);
-            frm.ShowDialog(this);
+            FrmAdminUpdateMasterpiece frm = new FrmAdminUpdateMasterpiece(selectedMasterpieceId, RefreshMasterpieces);
+            frm.ShowDialog();
         }
 
         private void mnuItemDelete_Click(object sender, EventArgs e)
@@ -140,6 +140,12 @@ namespace Museo
                 ht = dgvMasterpieces.HitTest(e.X, e.Y);
                 if (ht.Type == DataGridViewHitTestType.Cell) { mnuOptions.Show(Cursor.Position.X, Cursor.Position.Y); }
             }
+        }
+
+        private void btnMpDetails_click(object sender, EventArgs e)
+        {
+            FrmAdminMasterpiecesDetails frm = new FrmAdminMasterpiecesDetails();
+            frm.ShowDialog();
         }
     }
 }

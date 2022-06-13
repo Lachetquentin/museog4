@@ -29,6 +29,7 @@ namespace Museo
             dgvArtists.ColumnHeadersDefaultCellStyle.SelectionBackColor = dgvArtists.ColumnHeadersDefaultCellStyle.BackColor;
             dgvArtists.Columns["ArtistId"].Visible = false;
             dgvArtists.Columns["Isni"].Visible = false;
+            dgvArtists.Columns["Url"].Visible = false;
             dgvArtists.Columns["Name"].HeaderText = "Nom";
             dgvArtists.Columns["Desc"].HeaderText = "Description";
             dgvArtists.Columns["Dob"].HeaderText = "Date de naissance";
@@ -50,8 +51,8 @@ namespace Museo
                 return;
             }
 
-            //FrmAdminUpdateArtist frm = new FrmAdminUpdateArtist(selectedArtistId);
-            //frm.ShowDialog(this);
+            FrmAdminUpdateArtist frm = new FrmAdminUpdateArtist(selectedArtistId, RefreshArtists);
+            frm.ShowDialog();
         }
 
         private void mnuItemDelete_Click(object sender, EventArgs e)
@@ -68,9 +69,16 @@ namespace Museo
             var Result = MessageBox.Show("Voulez-vous vraiment supprimer cette artiste ?", "Supprimer Artiste", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (Result == DialogResult.Yes)
             {
-                DataLayer.ArtistData.DeleteArtist(selectedArtistId);
-                RefreshArtists();
-                MessageBox.Show("Artiste supprimé !");
+                if (DataLayer.ArtistData.DeleteArtist(selectedArtistId))
+                {
+                    RefreshArtists();
+                    MessageBox.Show("Artiste supprimé !");
+                }
+                else
+                {
+                    FrmMain.MessageShow("ForeignKeys");
+                    return;
+                }
             }
             else if (Result == DialogResult.No)
             {
@@ -81,8 +89,8 @@ namespace Museo
         private void ViewArtist()
         {
             if (selectedArtistId == 0) { return; }
-            FrmViewArtist frm = new FrmViewArtist(selectedArtistId);
-            frm.ShowDialog(this);
+            FrmViewArtist frm = new FrmViewArtist(selectedArtistId, RefreshArtists);
+            frm.ShowDialog();
         }
 
         private void ViewArtist(int artistId)
@@ -96,7 +104,7 @@ namespace Museo
                 return;
             }
 
-            FrmViewArtist frm = new FrmViewArtist(artistId);
+            FrmViewArtist frm = new FrmViewArtist(artistId, RefreshArtists);
             frm.ShowDialog();
         }
 
@@ -140,6 +148,12 @@ namespace Museo
                 ht = dgvArtists.HitTest(e.X, e.Y);
                 if (ht.Type == DataGridViewHitTestType.Cell) { mnuOptions.Show(Cursor.Position.X, Cursor.Position.Y); }
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            //FrmAdminCreateArtist frm = new FrmAdminCreateArtist(RefreshArtists);
+            //frm.ShowDialog();
         }
     }
 }

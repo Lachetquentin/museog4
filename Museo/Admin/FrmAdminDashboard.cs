@@ -45,7 +45,7 @@ namespace Museo
         }
         private void btnUser_Click(object sender, EventArgs e)
         {
-            openChildForm(new FrmAdminUserType());
+            openChildForm(new FrmAdminUserType(user));
         }
 
         private void openChildForm(Form childForm)

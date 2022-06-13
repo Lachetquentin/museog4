@@ -9,10 +9,12 @@ namespace Museo
         private int artistId;
         private Artist artist;
         private int maxLength = 873;
-        public FrmViewArtist(int selectedArtistId)
+        private readonly Action _refreshArtists;
+        public FrmViewArtist(int selectedArtistId, Action refreshArtists)
         {
             InitializeComponent();
             artistId = selectedArtistId;
+            _refreshArtists = refreshArtists;
             artist = DataLayer.ArtistData.GetArtistById(artistId);
             Text = artist.Name;
         }
@@ -23,7 +25,7 @@ namespace Museo
 
             lblNameDob.Text = artist.Name + " (" + artist.Dob.ToShortDateString() + ")";
 
-            //picImage.ImageLocation = artist.URL;
+            picImage.ImageLocation = artist.URL;
 
             string desc = artist.Desc;
             if (desc.Length > maxLength)
@@ -39,7 +41,7 @@ namespace Museo
             if (!DataLayer.ArtistData.CheckIfArtistExists(artistId))
             {
                 FrmMain.MessageShow("NonExisting");
-                ((FrmAdminArtists)Owner).RefreshArtists();
+                _refreshArtists();
                 Close(); 
                 return;
             }

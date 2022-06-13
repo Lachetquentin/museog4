@@ -259,8 +259,10 @@ namespace Museo
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlBottom);
             this.Controls.Add(this.pnlTop);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAdminDashboard";
-            this.Text = "FrmAdminDashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Tableau de bord";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmAdminDashboard_FormClosing);
             this.Load += new System.EventHandler(this.FrmAdminDashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btnMap)).EndInit();

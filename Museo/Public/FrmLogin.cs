@@ -59,5 +59,11 @@ namespace Museo
         {
             FrmMain.Quit();
         }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+            AcceptButton = btnLogin;
+            CancelButton = btnQuit;
+        }
     }
 }

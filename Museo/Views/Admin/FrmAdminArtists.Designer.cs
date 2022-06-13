@@ -32,6 +32,7 @@ namespace Museo
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdminArtists));
             this.pnlBottom = new System.Windows.Forms.Panel();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.lblNbOfArtists = new System.Windows.Forms.Label();
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.dgvArtists = new System.Windows.Forms.DataGridView();
@@ -48,6 +49,7 @@ namespace Museo
             // pnlBottom
             // 
             this.pnlBottom.BackColor = System.Drawing.Color.SkyBlue;
+            this.pnlBottom.Controls.Add(this.btnAdd);
             this.pnlBottom.Controls.Add(this.lblNbOfArtists);
             this.pnlBottom.Controls.Add(this.picLogo);
             this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -55,6 +57,21 @@ namespace Museo
             this.pnlBottom.Name = "pnlBottom";
             this.pnlBottom.Size = new System.Drawing.Size(991, 83);
             this.pnlBottom.TabIndex = 11;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAdd.Location = new System.Drawing.Point(765, 0);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(124, 83);
+            this.btnAdd.TabIndex = 5;
+            this.btnAdd.Text = "Ajouter";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // lblNbOfArtists
             // 
@@ -97,6 +114,7 @@ namespace Museo
             this.dgvArtists.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvArtists.RowTemplate.Height = 25;
             this.dgvArtists.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvArtists.ShowCellToolTips = false;
             this.dgvArtists.Size = new System.Drawing.Size(991, 600);
             this.dgvArtists.TabIndex = 12;
             this.dgvArtists.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArtists_CellDoubleClick);
@@ -110,30 +128,30 @@ namespace Museo
             this.mnuItemUpdate,
             this.mnuItemDelete});
             this.mnuOptions.Name = "mnuMasterpieces";
-            this.mnuOptions.Size = new System.Drawing.Size(181, 92);
+            this.mnuOptions.Size = new System.Drawing.Size(130, 70);
             // 
             // mnuItemView
             // 
             this.mnuItemView.Name = "mnuItemView";
-            this.mnuItemView.Size = new System.Drawing.Size(180, 22);
+            this.mnuItemView.Size = new System.Drawing.Size(129, 22);
             this.mnuItemView.Text = "Voir";
             this.mnuItemView.Click += new System.EventHandler(this.mnuItemView_Click);
             // 
             // mnuItemUpdate
             // 
             this.mnuItemUpdate.Name = "mnuItemUpdate";
-            this.mnuItemUpdate.Size = new System.Drawing.Size(180, 22);
+            this.mnuItemUpdate.Size = new System.Drawing.Size(129, 22);
             this.mnuItemUpdate.Text = "Modifier";
             this.mnuItemUpdate.Click += new System.EventHandler(this.mnuItemUpdate_Click);
             // 
             // mnuItemDelete
             // 
             this.mnuItemDelete.Name = "mnuItemDelete";
-            this.mnuItemDelete.Size = new System.Drawing.Size(180, 22);
+            this.mnuItemDelete.Size = new System.Drawing.Size(129, 22);
             this.mnuItemDelete.Text = "Supprimer";
             this.mnuItemDelete.Click += new System.EventHandler(this.mnuItemDelete_Click);
             // 
-            // FrmAdminArtist
+            // FrmAdminArtists
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -141,8 +159,9 @@ namespace Museo
             this.Controls.Add(this.pnlBottom);
             this.Controls.Add(this.dgvArtists);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmAdminArtist";
-            this.Text = "FrmAdminArtist";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "FrmAdminArtists";
+            this.Text = "Voir les artistes";
             this.Load += new System.EventHandler(this.FrmAdminArtists_Load);
             this.pnlBottom.ResumeLayout(false);
             this.pnlBottom.PerformLayout();
@@ -163,5 +182,6 @@ namespace Museo
         private System.Windows.Forms.ToolStripMenuItem mnuItemView;
         private System.Windows.Forms.ToolStripMenuItem mnuItemUpdate;
         private System.Windows.Forms.ToolStripMenuItem mnuItemDelete;
+        private System.Windows.Forms.Button btnAdd;
     }
 }
