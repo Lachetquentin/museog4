@@ -1,12 +1,5 @@
 ﻿using MuseoLibrary;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Museo
@@ -31,14 +24,15 @@ namespace Museo
             Exhibition exhibition = DataLayer.ExhibitionData.GetExhibitionById(mp.ExhibitionId);
 
             lblTitle.Text = mp.Name + " (" + mp.CreateYear + ")";
-            lblYearAuthor.Text =  "par " + artist.Name;
+            lblArtist.Text =  "par " + artist.Name;
             lblExhibition.Text = exhibition.Name;
             lblLocation.Text = location.Name;
+            picImage.ImageLocation = mp.URL;
 
             string desc = mp.Desc;
             if (desc.Length > maxLength) 
             {
-                desc.Substring(0, maxLength);
+                desc = desc.Substring(0, maxLength);
                 desc += "...";
             };
             lblDesc.Text = desc;

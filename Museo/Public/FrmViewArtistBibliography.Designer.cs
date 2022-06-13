@@ -1,7 +1,7 @@
 ﻿
 namespace Museo
 {
-    partial class FrmViewArtist
+    partial class FrmViewArtistBibliography
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace Museo
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmViewArtist));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmViewArtistBibliography));
             this.pnlMain = new System.Windows.Forms.Panel();
             this.dgvMasterpieces = new System.Windows.Forms.DataGridView();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -137,7 +137,7 @@ namespace Museo
             this.mnuItemView.Text = "Voir";
             this.mnuItemView.Click += new System.EventHandler(this.mnuItemView_Click);
             // 
-            // FrmViewArtist
+            // FrmViewArtistBibliography
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -145,7 +145,7 @@ namespace Museo
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlTop);
             this.Controls.Add(this.pnlBottom);
-            this.Name = "FrmViewArtist";
+            this.Name = "FrmViewArtistBibliography";
             this.Text = "FrmViewArtist";
             this.Load += new System.EventHandler(this.FrmViewArtist_Load);
             this.pnlMain.ResumeLayout(false);

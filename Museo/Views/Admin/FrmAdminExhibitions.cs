@@ -4,15 +4,15 @@ using MuseoLibrary;
 
 namespace Museo
 {
-    public partial class FrmExhibitions : Form
+    public partial class FrmAdminExhibitions : Form
     {
         internal int selectedExhibitionId;
-        public FrmExhibitions()
+        public FrmAdminExhibitions()
         {
             InitializeComponent();
         }
 
-        private void FrmExhibitions_Load(object sender, EventArgs e)
+        private void FrmAdminExhibitions_Load(object sender, EventArgs e)
         {
             RefreshExhibitions();
             Start();
@@ -44,7 +44,7 @@ namespace Museo
             frm.ShowDialog();
         }
 
-        private void ViewMasterpiece(int exhId)
+        private void ViewExhibition(int exhId)
         {
             if (selectedExhibitionId == 0) { return; }
             FrmViewExhibition frm = new FrmViewExhibition(exhId);
@@ -75,7 +75,7 @@ namespace Museo
             try
             {
                 selectedExhibitionId = Convert.ToInt32(dgvExhibitions.Rows[e.RowIndex].Cells[0].Value);
-                ViewMasterpiece(selectedExhibitionId);
+                ViewExhibition(selectedExhibitionId);
             }
             catch (Exception)
             {
@@ -90,6 +90,45 @@ namespace Museo
                 DataGridView.HitTestInfo ht;
                 ht = dgvExhibitions.HitTest(e.X, e.Y);
                 if (ht.Type == DataGridViewHitTestType.Cell) { mnuOptions.Show(Cursor.Position.X, Cursor.Position.Y); }
+            }
+        }
+
+        private void mnuItemUpdate_Click(object sender, EventArgs e)
+        {
+            if (selectedExhibitionId == 0) { return; }
+
+            if (!DataLayer.ExhibitionData.CheckIfExhibitionExists(selectedExhibitionId))
+            {
+                FrmMain.MessageShow("NonExisting");
+                RefreshExhibitions();
+                return;
+            }
+
+            //FrmAdminUpdateExhibition frm = new FrmAdminUpdateExhibition(selectedExhibitionId);
+            //frm.ShowDialog(this);
+        }
+
+        private void mnuItemDelete_Click(object sender, EventArgs e)
+        {
+            if (selectedExhibitionId == 0) { return; }
+
+            if (!DataLayer.ExhibitionData.CheckIfExhibitionExists(selectedExhibitionId))
+            {
+                FrmMain.MessageShow("NonExisting");
+                RefreshExhibitions();
+                return;
+            }
+
+            var Result = MessageBox.Show("Voulez-vous vraiment supprimer cette expositions ?", "Supprimer Expositions", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (Result == DialogResult.Yes)
+            {
+                DataLayer.ExhibitionData.DeleteExhibition(selectedExhibitionId);
+                RefreshExhibitions();
+                MessageBox.Show("Artiste supprimé !");
+            }
+            else if (Result == DialogResult.No)
+            {
+                return;
             }
         }
     }

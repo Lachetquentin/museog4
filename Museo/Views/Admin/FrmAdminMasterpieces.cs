@@ -4,15 +4,15 @@ using MuseoLibrary;
 
 namespace Museo
 {
-    public partial class FrmMasterpieces : Form
+    public partial class FrmAdminMasterpieces : Form
     {
         internal int selectedMasterpieceId;
-        public FrmMasterpieces()
+        public FrmAdminMasterpieces()
         {
             InitializeComponent();
         }
 
-        private void FrmMasterpieces_Load(object sender, EventArgs e)
+        private void FrmAdminMasterpieces_Load(object sender, EventArgs e)
         {
             RefreshMasterpieces();
             Start();
@@ -36,6 +36,7 @@ namespace Museo
             dgvMasterpieces.Columns["OwnerId"].Visible = false;
             dgvMasterpieces.Columns["Memo"].Visible = false;
             dgvMasterpieces.Columns["Ncda"].Visible = false;
+            dgvMasterpieces.Columns["Url"].Visible = false;
             dgvMasterpieces.Columns["Name"].HeaderText = "Nom de l'oeuvre";
             dgvMasterpieces.Columns["CreateYear"].HeaderText = "Date de création";
             dgvMasterpieces.Columns["Desc"].HeaderText = "Description";
@@ -46,10 +47,48 @@ namespace Museo
         {
             ViewMasterpiece();
         }
+        private void mnuItemUpdate_Click(object sender, EventArgs e)
+        {
+            if (selectedMasterpieceId == 0) { return; }
+
+            if (!DataLayer.MasterpieceData.CheckIfMasterpieceExists(selectedMasterpieceId))
+            {
+                FrmMain.MessageShow("NonExisting");
+                RefreshMasterpieces();
+                return;
+            }
+
+            FrmAdminUpdateMasterpiece frm = new FrmAdminUpdateMasterpiece(selectedMasterpieceId);
+            frm.ShowDialog(this);
+        }
+
+        private void mnuItemDelete_Click(object sender, EventArgs e)
+        {
+            if (selectedMasterpieceId == 0) { return; }
+
+            if (!DataLayer.MasterpieceData.CheckIfMasterpieceExists(selectedMasterpieceId))
+            {
+                FrmMain.MessageShow("NonExisting");
+                RefreshMasterpieces();
+                return;
+            }
+
+            var Result = MessageBox.Show("Voulez-vous vraiment supprimer cette oeuvre ?", "Supprimer Oeuvre", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (Result == DialogResult.Yes)
+            {
+                DataLayer.MasterpieceData.DeleteMasterpiece(selectedMasterpieceId);
+                RefreshMasterpieces();
+                MessageBox.Show("Oeuvre supprimé !");
+            }
+            else if (Result == DialogResult.No)
+            {
+                return;
+            }
+        }
 
         private void ViewMasterpiece()
         {
-            if(selectedMasterpieceId == 0) { return; }
+            if (selectedMasterpieceId == 0) { return; }
             FrmViewMasterpiece frm = new FrmViewMasterpiece(selectedMasterpieceId);
             frm.ShowDialog();
         }

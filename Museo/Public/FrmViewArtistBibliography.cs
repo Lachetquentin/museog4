@@ -4,12 +4,12 @@ using System.Windows.Forms;
 
 namespace Museo
 {
-    public partial class FrmViewArtist : Form
+    public partial class FrmViewArtistBibliography : Form
     {
         private int artistId;
         private Artist artist;
         private int selectedMasterpieceId;
-        public FrmViewArtist(int selectedArtistId)
+        public FrmViewArtistBibliography(int selectedArtistId)
         {
             InitializeComponent();
             artistId = selectedArtistId;
@@ -36,6 +36,7 @@ namespace Museo
             dgvMasterpieces.Columns["OwnerId"].Visible = false;
             dgvMasterpieces.Columns["Memo"].Visible = false;
             dgvMasterpieces.Columns["Ncda"].Visible = false;
+            dgvMasterpieces.Columns["Url"].Visible = false;
             dgvMasterpieces.Columns["Name"].HeaderText = "Nom de l'oeuvre";
             dgvMasterpieces.Columns["CreateYear"].HeaderText = "Date de création";
             dgvMasterpieces.Columns["Desc"].HeaderText = "Description";

@@ -307,7 +307,7 @@ namespace MuseoLibrary
         };
         public static class MasterpieceData
         {
-            public static void AddMasterpiece(int artistId, int exhibitionId, int stateId, int statusId, int locationId, int ownerId, string name, int createYear, string desc, string memo, string ncda)
+            public static void AddMasterpiece(int artistId, int exhibitionId, int stateId, int statusId, int locationId, int ownerId, string name, int createYear, string desc, string memo, string url, string ncda)
             {
                 try
                 {
@@ -324,6 +324,7 @@ namespace MuseoLibrary
                         CreateYear = createYear,
                         Desc = desc,
                         Memo = memo,
+                        URL = url,
                         Ncda = ncda
                     };
                     s_db.Insert(masterpiece);
@@ -469,7 +470,7 @@ namespace MuseoLibrary
                 return listofMasterpieces;
             }
 
-            public static void UpdateMasterpiece(int masterpieceId, Artist artist, Exhibition exhibition, MpState state, MpStatus status, Location location, Owner owner, string name, int createYear, string desc, string memo, string ncda)
+            public static void UpdateMasterpiece(int masterpieceId, Artist artist, Exhibition exhibition, MpState state, MpStatus status, Location location, Owner owner, string name, int createYear, string desc, string memo, string url, string ncda)
             {
                 try
                 {
@@ -485,6 +486,7 @@ namespace MuseoLibrary
                     mp.CreateYear = createYear;
                     mp.Desc = desc;
                     mp.Memo = memo;
+                    mp.URL = url;
                     mp.Ncda = ncda;
                     s_db.Update(mp);
                 }

@@ -1,7 +1,7 @@
 ﻿
 namespace Museo
 {
-    partial class FrmMasterpieces
+    partial class FrmAdminMasterpieces
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,15 @@ namespace Museo
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMasterpieces));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdminMasterpieces));
             this.pnlBottom = new System.Windows.Forms.Panel();
+            this.lblNbOfMasterpieces = new System.Windows.Forms.Label();
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.dgvMasterpieces = new System.Windows.Forms.DataGridView();
             this.mnuOptions = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuItemView = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblNbOfMasterpieces = new System.Windows.Forms.Label();
+            this.mnuItemUpdate = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMasterpieces)).BeginInit();
@@ -52,7 +54,17 @@ namespace Museo
             this.pnlBottom.Location = new System.Drawing.Point(0, 517);
             this.pnlBottom.Name = "pnlBottom";
             this.pnlBottom.Size = new System.Drawing.Size(991, 83);
-            this.pnlBottom.TabIndex = 0;
+            this.pnlBottom.TabIndex = 7;
+            // 
+            // lblNbOfMasterpieces
+            // 
+            this.lblNbOfMasterpieces.AutoSize = true;
+            this.lblNbOfMasterpieces.Font = new System.Drawing.Font("Segoe Script", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblNbOfMasterpieces.Location = new System.Drawing.Point(12, 11);
+            this.lblNbOfMasterpieces.Name = "lblNbOfMasterpieces";
+            this.lblNbOfMasterpieces.Size = new System.Drawing.Size(75, 30);
+            this.lblNbOfMasterpieces.TabIndex = 3;
+            this.lblNbOfMasterpieces.Text = "Count";
             // 
             // picLogo
             // 
@@ -85,8 +97,8 @@ namespace Museo
             this.dgvMasterpieces.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvMasterpieces.RowTemplate.Height = 25;
             this.dgvMasterpieces.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMasterpieces.Size = new System.Drawing.Size(991, 517);
-            this.dgvMasterpieces.TabIndex = 6;
+            this.dgvMasterpieces.Size = new System.Drawing.Size(991, 600);
+            this.dgvMasterpieces.TabIndex = 8;
             this.dgvMasterpieces.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMasterpieces_CellDoubleClick);
             this.dgvMasterpieces.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvMasterpieces_CellMouseDown);
             this.dgvMasterpieces.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvMasterpieces_MouseClick);
@@ -94,37 +106,44 @@ namespace Museo
             // mnuOptions
             // 
             this.mnuOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuItemView});
+            this.mnuItemView,
+            this.mnuItemUpdate,
+            this.mnuItemDelete});
             this.mnuOptions.Name = "mnuMasterpieces";
-            this.mnuOptions.Size = new System.Drawing.Size(95, 26);
+            this.mnuOptions.Size = new System.Drawing.Size(130, 70);
             // 
             // mnuItemView
             // 
             this.mnuItemView.Name = "mnuItemView";
-            this.mnuItemView.Size = new System.Drawing.Size(94, 22);
+            this.mnuItemView.Size = new System.Drawing.Size(180, 22);
             this.mnuItemView.Text = "Voir";
             this.mnuItemView.Click += new System.EventHandler(this.mnuItemView_Click);
             // 
-            // lblNbOfMasterpieces
+            // mnuItemUpdate
             // 
-            this.lblNbOfMasterpieces.AutoSize = true;
-            this.lblNbOfMasterpieces.Font = new System.Drawing.Font("Segoe Script", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNbOfMasterpieces.Location = new System.Drawing.Point(12, 11);
-            this.lblNbOfMasterpieces.Name = "lblNbOfMasterpieces";
-            this.lblNbOfMasterpieces.Size = new System.Drawing.Size(75, 30);
-            this.lblNbOfMasterpieces.TabIndex = 3;
-            this.lblNbOfMasterpieces.Text = "Count";
+            this.mnuItemUpdate.Name = "mnuItemUpdate";
+            this.mnuItemUpdate.Size = new System.Drawing.Size(129, 22);
+            this.mnuItemUpdate.Text = "Modifier";
+            this.mnuItemUpdate.Click += new System.EventHandler(this.mnuItemUpdate_Click);
             // 
-            // FrmMasterpieces
+            // mnuItemDelete
+            // 
+            this.mnuItemDelete.Name = "mnuItemDelete";
+            this.mnuItemDelete.Size = new System.Drawing.Size(129, 22);
+            this.mnuItemDelete.Text = "Supprimer";
+            this.mnuItemDelete.Click += new System.EventHandler(this.mnuItemDelete_Click);
+            // 
+            // FrmAdminMasterpieces
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(991, 600);
-            this.Controls.Add(this.dgvMasterpieces);
             this.Controls.Add(this.pnlBottom);
+            this.Controls.Add(this.dgvMasterpieces);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmMasterpieces";
-            this.Load += new System.EventHandler(this.FrmMasterpieces_Load);
+            this.Name = "FrmAdminMasterpieces";
+            this.Text = "FrmAdminMasterpieces";
+            this.Load += new System.EventHandler(this.FrmAdminMasterpieces_Load);
             this.pnlBottom.ResumeLayout(false);
             this.pnlBottom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
@@ -137,10 +156,12 @@ namespace Museo
         #endregion
 
         private System.Windows.Forms.Panel pnlBottom;
+        private System.Windows.Forms.Label lblNbOfMasterpieces;
         private System.Windows.Forms.PictureBox picLogo;
         internal System.Windows.Forms.DataGridView dgvMasterpieces;
         private System.Windows.Forms.ContextMenuStrip mnuOptions;
         private System.Windows.Forms.ToolStripMenuItem mnuItemView;
-        private System.Windows.Forms.Label lblNbOfMasterpieces;
+        private System.Windows.Forms.ToolStripMenuItem mnuItemUpdate;
+        private System.Windows.Forms.ToolStripMenuItem mnuItemDelete;
     }
 }

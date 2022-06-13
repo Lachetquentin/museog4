@@ -22,6 +22,7 @@ namespace MuseoLibrary
         public int CreateYear { get; set; }
         public string Desc { get; set; }
         public string Memo { get; set; }
+        public string URL { get; set; }
         public string Ncda { get; set; }
     }
 }

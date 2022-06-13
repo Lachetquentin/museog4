@@ -103,11 +103,11 @@ namespace Museo
                 case "PhoneNumberNotValid":
                     msg = "Numéro de téléphone non valide ! Veuillez vérifier s'il vous plaît.";
                     break;
-                case "AlreadyExistingUser":
-                    msg = "Nom d'utilisateur déjà existant dans le système !";
+                case "AlreadyExisting":
+                    msg = "Ce que vous voulez ajouter existe déjà dans le système !";
                     break;
-                case "NonExistingUser":
-                    msg = "L'utilisateur n'existe pas dans le système !";
+                case "NonExisting":
+                    msg = "Ce que vous avez selectionné n'existe pas dans le système !";
                     break;
                 case "DeletingYourself":
                     msg = "Vous ne pouvez pas vous supprimez vous-même !";
