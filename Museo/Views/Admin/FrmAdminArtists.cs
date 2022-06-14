@@ -152,8 +152,8 @@ namespace Museo
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //FrmAdminCreateArtist frm = new FrmAdminCreateArtist(RefreshArtists);
-            //frm.ShowDialog();
+            FrmAdminCreateArtist frm = new FrmAdminCreateArtist(RefreshArtists);
+            frm.ShowDialog();
         }
     }
 }

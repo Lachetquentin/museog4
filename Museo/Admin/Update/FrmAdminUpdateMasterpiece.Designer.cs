@@ -127,7 +127,7 @@ namespace Museo
             this.txtURL.Location = new System.Drawing.Point(565, 262);
             this.txtURL.Name = "txtURL";
             this.txtURL.Size = new System.Drawing.Size(271, 37);
-            this.txtURL.TabIndex = 37;
+            this.txtURL.TabIndex = 12;
             // 
             // lblURL
             // 
@@ -144,14 +144,14 @@ namespace Museo
             this.txtNcda.Location = new System.Drawing.Point(563, 198);
             this.txtNcda.Name = "txtNcda";
             this.txtNcda.Size = new System.Drawing.Size(271, 37);
-            this.txtNcda.TabIndex = 35;
+            this.txtNcda.TabIndex = 9;
             // 
             // txtCreationYear
             // 
             this.txtCreationYear.Location = new System.Drawing.Point(9, 198);
             this.txtCreationYear.Name = "txtCreationYear";
             this.txtCreationYear.Size = new System.Drawing.Size(271, 37);
-            this.txtCreationYear.TabIndex = 34;
+            this.txtCreationYear.TabIndex = 7;
             // 
             // cbState
             // 
@@ -161,7 +161,7 @@ namespace Museo
             this.cbState.Location = new System.Drawing.Point(563, 123);
             this.cbState.Name = "cbState";
             this.cbState.Size = new System.Drawing.Size(268, 37);
-            this.cbState.TabIndex = 33;
+            this.cbState.TabIndex = 6;
             // 
             // cbStatus
             // 
@@ -171,7 +171,7 @@ namespace Museo
             this.cbStatus.Location = new System.Drawing.Point(563, 55);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(268, 37);
-            this.cbStatus.TabIndex = 32;
+            this.cbStatus.TabIndex = 3;
             // 
             // cbOwner
             // 
@@ -181,7 +181,7 @@ namespace Museo
             this.cbOwner.Location = new System.Drawing.Point(286, 196);
             this.cbOwner.Name = "cbOwner";
             this.cbOwner.Size = new System.Drawing.Size(268, 37);
-            this.cbOwner.TabIndex = 31;
+            this.cbOwner.TabIndex = 8;
             // 
             // cbExhibition
             // 
@@ -191,7 +191,7 @@ namespace Museo
             this.cbExhibition.Location = new System.Drawing.Point(286, 123);
             this.cbExhibition.Name = "cbExhibition";
             this.cbExhibition.Size = new System.Drawing.Size(268, 37);
-            this.cbExhibition.TabIndex = 30;
+            this.cbExhibition.TabIndex = 5;
             // 
             // cbLocation
             // 
@@ -201,7 +201,7 @@ namespace Museo
             this.cbLocation.Location = new System.Drawing.Point(286, 55);
             this.cbLocation.Name = "cbLocation";
             this.cbLocation.Size = new System.Drawing.Size(268, 37);
-            this.cbLocation.TabIndex = 29;
+            this.cbLocation.TabIndex = 2;
             // 
             // cbAuthor
             // 
@@ -211,7 +211,7 @@ namespace Museo
             this.cbAuthor.Location = new System.Drawing.Point(9, 123);
             this.cbAuthor.Name = "cbAuthor";
             this.cbAuthor.Size = new System.Drawing.Size(268, 37);
-            this.cbAuthor.TabIndex = 28;
+            this.cbAuthor.TabIndex = 4;
             // 
             // btnReset
             // 
@@ -222,7 +222,7 @@ namespace Museo
             this.btnReset.Location = new System.Drawing.Point(563, 375);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(271, 40);
-            this.btnReset.TabIndex = 27;
+            this.btnReset.TabIndex = 14;
             this.btnReset.Text = "Réinitialiser";
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -234,7 +234,7 @@ namespace Museo
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDesc.Size = new System.Drawing.Size(272, 203);
-            this.txtDesc.TabIndex = 26;
+            this.txtDesc.TabIndex = 11;
             this.txtDesc.UseSystemPasswordChar = true;
             // 
             // lblDesc
@@ -264,7 +264,7 @@ namespace Museo
             this.txtMemo.Name = "txtMemo";
             this.txtMemo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtMemo.Size = new System.Drawing.Size(272, 203);
-            this.txtMemo.TabIndex = 22;
+            this.txtMemo.TabIndex = 10;
             this.txtMemo.UseSystemPasswordChar = true;
             // 
             // lblNcda
@@ -346,7 +346,7 @@ namespace Museo
             this.btnQuit.Location = new System.Drawing.Point(565, 432);
             this.btnQuit.Name = "btnQuit";
             this.btnQuit.Size = new System.Drawing.Size(271, 40);
-            this.btnQuit.TabIndex = 5;
+            this.btnQuit.TabIndex = 15;
             this.btnQuit.Text = "Quitter";
             this.btnQuit.UseVisualStyleBackColor = false;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
@@ -380,7 +380,7 @@ namespace Museo
             this.btnUpdate.Location = new System.Drawing.Point(565, 317);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(271, 40);
-            this.btnUpdate.TabIndex = 4;
+            this.btnUpdate.TabIndex = 13;
             this.btnUpdate.Text = "Valider";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);

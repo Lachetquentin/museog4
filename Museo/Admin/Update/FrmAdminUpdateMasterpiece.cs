@@ -15,13 +15,44 @@ namespace Museo
             InitializeComponent();
             mpId = selectedMasterpieceId;
             _refreshMasterpieces = refreshMasterpieces;
-            mp = DataLayer.MasterpieceData.GetMasterpieceById(mpId);
-            Text = "Modification d'une oeuvre ";
+            AcceptButton = btnUpdate;
+            CancelButton = btnQuit;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (DataLayer.MasterpieceData.UpdateMasterpiece(mpId, (Artist)cbAuthor.SelectedItem, (Exhibition)cbExhibition.SelectedItem, (MpState)cbState.SelectedItem, (MpStatus)cbStatus.SelectedItem, (Location)cbLocation.SelectedItem, (Owner)cbOwner.SelectedItem, txtName.Text, Convert.ToInt32(txtCreationYear.Text), txtDesc.Text, txtMemo.Text, txtURL.Text, txtNcda.Text))
+            if (Utils.Checker(txtCreationYear.Text) || Utils.Checker(txtDesc.Text) || Utils.Checker(txtName.Text) 
+                || Utils.Checker(txtNcda.Text) || Utils.Checker(txtURL.Text))
+            {
+                FrmMain.MessageShow("NullOrWhiteSpace");
+                return;
+            }
+
+            int creationYear;
+
+            if (int.TryParse(txtCreationYear.Text, out int value))
+            {
+                creationYear = value;
+            }
+            else
+            {
+                FrmMain.MessageShow("UpdateFailed");
+                return;
+            }
+
+            int ncda;
+
+            if (int.TryParse(txtNcda.Text, out int result))
+            {
+                ncda = result;
+            }
+            else
+            {
+                FrmMain.MessageShow("UpdateFailed");
+                return;
+            }
+
+            if (DataLayer.MasterpieceData.UpdateMasterpiece(mpId, (Artist)cbAuthor.SelectedItem, (Exhibition)cbExhibition.SelectedItem, (MpState)cbState.SelectedItem, (MpStatus)cbStatus.SelectedItem, (Location)cbLocation.SelectedItem, (Owner)cbOwner.SelectedItem, txtName.Text, creationYear, txtDesc.Text, txtMemo.Text, txtURL.Text, ncda))
             {
                 MessageBox.Show("L'oeuvre à bien été mise à jour !");
                 _refreshMasterpieces();
@@ -50,6 +81,7 @@ namespace Museo
 
         private void SetupForm()
         {
+            mp = DataLayer.MasterpieceData.GetMasterpieceById(mpId);
             List<Artist> listOfArtists = DataLayer.ArtistData.GetAllArtists();
             List<Exhibition> exhibition = DataLayer.ExhibitionData.GetAllExhibitions();
             List<Location> location = DataLayer.LocationData.GetAllLocations();
@@ -80,7 +112,7 @@ namespace Museo
             txtCreationYear.Text = mp.CreateYear.ToString();
             txtMemo.Text = mp.Memo;
             txtURL.Text = mp.URL;
-            txtNcda.Text = mp.Ncda;
+            txtNcda.Text = mp.Ncda.ToString();
         }
     }
 }

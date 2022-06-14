@@ -147,5 +147,11 @@ namespace Museo
             FrmAdminMasterpiecesDetails frm = new FrmAdminMasterpiecesDetails();
             frm.ShowDialog();
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            FrmAdminCreateMasterpiece frm = new FrmAdminCreateMasterpiece(RefreshMasterpieces);
+            frm.ShowDialog();
+        }
     }
 }

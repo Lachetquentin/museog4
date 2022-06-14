@@ -16,12 +16,12 @@ namespace Museo
 
         private void FrmAdminDashboard_Load(object sender, EventArgs e)
         {
-            openChildForm(new FrmHome());
+            openChildForm(new FrmAdminHome());
         }
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            openChildForm(new FrmHome());
+            openChildForm(new FrmAdminHome());
         }
 
         private void btnMasterpiece_Click(object sender, EventArgs e)

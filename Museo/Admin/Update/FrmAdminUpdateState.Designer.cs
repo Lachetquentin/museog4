@@ -51,7 +51,7 @@ namespace Museo
             this.btnReset.Location = new System.Drawing.Point(7, 168);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(271, 40);
-            this.btnReset.TabIndex = 27;
+            this.btnReset.TabIndex = 3;
             this.btnReset.Text = "Réinitialiser";
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -65,7 +65,7 @@ namespace Museo
             this.btnQuit.Location = new System.Drawing.Point(9, 225);
             this.btnQuit.Name = "btnQuit";
             this.btnQuit.Size = new System.Drawing.Size(271, 40);
-            this.btnQuit.TabIndex = 5;
+            this.btnQuit.TabIndex = 4;
             this.btnQuit.Text = "Quitter";
             this.btnQuit.UseVisualStyleBackColor = false;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
@@ -89,7 +89,7 @@ namespace Museo
             this.btnUpdate.Location = new System.Drawing.Point(9, 110);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(271, 40);
-            this.btnUpdate.TabIndex = 4;
+            this.btnUpdate.TabIndex = 2;
             this.btnUpdate.Text = "Valider";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);

@@ -9,7 +9,7 @@ namespace MuseoLibrary
         public static IDatabase s_db = new Database(new MySql.Data.MySqlClient.MySqlConnection(Properties.Resources.ConnString));
         public static class ArtistData
         {
-            public static void AddArtist(string name, DateTime dob, string desc, string url, string isni)
+            public static bool AddArtist(string name, DateTime dob, string desc, string url, string isni)
             {
                 try
                 {
@@ -23,8 +23,9 @@ namespace MuseoLibrary
                         Isni = isni
                     };
                     s_db.Insert(artist);
+                    return true;
                 }
-                catch (Exception) { }
+                catch (Exception) { return false; }
                 finally { s_db.Connection.Close(); }
             }
 
@@ -141,7 +142,7 @@ namespace MuseoLibrary
         }
         public static class ExhibitionData
         {
-            public static void AddExhibition(string name)
+            public static bool AddExhibition(string name)
             {
                 try
                 {
@@ -151,8 +152,9 @@ namespace MuseoLibrary
                         Name = name
                     };
                     s_db.Insert(exhibition);
+                    return true;
                 }
-                catch (Exception) { }
+                catch (Exception) { return false; }
                 finally { s_db.Connection.Close(); }
             }
 
@@ -310,19 +312,19 @@ namespace MuseoLibrary
         };
         public static class MasterpieceData
         {
-            public static void AddMasterpiece(int artistId, int exhibitionId, int stateId, int statusId, int locationId, int ownerId, string name, int createYear, string desc, string memo, string url, string ncda)
+            public static bool AddMasterpiece(Artist artist, Exhibition exhibition, MpState state, MpStatus status, Location location, Owner owner, string name, int createYear, string desc, string memo, string url, int ncda)
             {
                 try
                 {
                     s_db.Connection.Open();
                     Masterpiece masterpiece = new()
                     {
-                        ArtistId = artistId,
-                        ExhibitionId = exhibitionId,
-                        StateId = stateId,
-                        StatusId = statusId,
-                        LocationId = locationId,
-                        OwnerId = ownerId,
+                        ArtistId = artist.ArtistId,
+                        ExhibitionId = exhibition.ExhibitionId,
+                        StateId = state.StateId,
+                        StatusId = status.StatusId,
+                        LocationId = location.LocationId,
+                        OwnerId = owner.OwnerId,
                         Name = name,
                         CreateYear = createYear,
                         Desc = desc,
@@ -331,8 +333,9 @@ namespace MuseoLibrary
                         Ncda = ncda
                     };
                     s_db.Insert(masterpiece);
+                    return true;
                 }
-                catch (Exception) { }
+                catch (Exception) { return false; }
                 finally { s_db.Connection.Close(); }
             }
 
@@ -473,7 +476,7 @@ namespace MuseoLibrary
                 return listofMasterpieces;
             }
 
-            public static bool UpdateMasterpiece(int masterpieceId, Artist artist, Exhibition exhibition, MpState state, MpStatus status, Location location, Owner owner, string name, int createYear, string desc, string memo, string url, string ncda)
+            public static bool UpdateMasterpiece(int masterpieceId, Artist artist, Exhibition exhibition, MpState state, MpStatus status, Location location, Owner owner, string name, int createYear, string desc, string memo, string url, int ncda)
             {
                 try
                 {
@@ -500,7 +503,7 @@ namespace MuseoLibrary
         }        
         public static class MpStateData
         {
-            public static void AddState(string name)
+            public static bool AddState(string name)
             {
                 try
                 {
@@ -510,8 +513,9 @@ namespace MuseoLibrary
                         Name = name
                     };
                     s_db.Insert(state);
+                    return true;
                 }
-                catch (Exception) { }
+                catch (Exception) { return false; }
                 finally { s_db.Connection.Close(); }
             }
 
@@ -601,7 +605,7 @@ namespace MuseoLibrary
         }
         public static class MpStatusData
         {
-            public static void AddStatus(string name)
+            public static bool AddStatus(string name)
             {
                 try
                 {
@@ -611,8 +615,9 @@ namespace MuseoLibrary
                         Name = name
                     };
                     s_db.Insert(status);
+                    return true;
                 }
-                catch (Exception) { }
+                catch (Exception) { return false; }
                 finally { s_db.Connection.Close(); }
             }
 
@@ -702,7 +707,7 @@ namespace MuseoLibrary
         };
         public static class OwnerData
         {
-            public static void AddOwner(string location, string name, string email, string phoneNumber)
+            public static bool AddOwner(string location, string name, string email, string phoneNumber)
             {
                 try
                 {
@@ -715,8 +720,9 @@ namespace MuseoLibrary
                         PhoneNumber = phoneNumber
                     };
                     s_db.Insert(owner);
+                    return true;
                 }
-                catch (Exception) { }
+                catch (Exception) { return false; }
                 finally { s_db.Connection.Close(); }
             }
 
@@ -787,7 +793,7 @@ namespace MuseoLibrary
                 return owner;
             }
 
-            public static void UpdateOwner(int ownerId, string location, string name, string email, string phoneNumber)
+            public static bool UpdateOwner(int ownerId, string location, string name, string email, string phoneNumber)
             {
                 try
                 {
@@ -798,22 +804,24 @@ namespace MuseoLibrary
                     owner.Email = email;
                     owner.PhoneNumber = phoneNumber;
                     s_db.Update(owner);
+                    return true;
                 }
-                catch (Exception) { }
+                catch (Exception) { return false; }
                 finally { s_db.Connection.Close(); }
             }
         };
         public static class UserData
         {
-            public static void AddUser(string username, string password)
+            public static bool AddUser(string username, string email, string password)
             {
                 try
                 {
                     s_db.Connection.Open();
-                    User u = new User() { Username = username, RoleId = 1, Email = "", Password = Utils.EncryptPassword(password) };
+                    User u = new User() { Username = username, RoleId = 1, Email = email, Password = Utils.EncryptPassword(password) };
                     s_db.Insert(u);
+                    return true;
                 }
-                catch (Exception) { }
+                catch (Exception) { return false; }
                 finally { s_db.Connection.Close(); }
             }
 
@@ -884,17 +892,19 @@ namespace MuseoLibrary
                 return user;
             }
 
-            public static void UpdateUser(int userId, string username, string password)
+            public static bool UpdateUser(int userId, string username, string email, string password)
             {
                 try
                 {
                     s_db.Connection.Open();
                     var user = s_db.SingleById<User>(userId);
                     user.Username = username;
+                    user.Email = email;
                     user.Password = Utils.EncryptPassword(password);
                     s_db.Update(user);
+                    return true;
                 }
-                catch (Exception) { }
+                catch (Exception) { return false; }
                 finally { s_db.Connection.Close(); }
             }
         }

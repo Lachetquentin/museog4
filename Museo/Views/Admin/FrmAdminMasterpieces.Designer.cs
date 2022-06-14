@@ -32,6 +32,7 @@ namespace Museo
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdminMasterpieces));
             this.pnlBottom = new System.Windows.Forms.Panel();
+            this.btnMpDetails = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.lblNbOfMasterpieces = new System.Windows.Forms.Label();
             this.picLogo = new System.Windows.Forms.PictureBox();
@@ -40,7 +41,6 @@ namespace Museo
             this.mnuItemView = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemUpdate = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnMpDetails = new System.Windows.Forms.Button();
             this.pnlBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMasterpieces)).BeginInit();
@@ -60,6 +60,21 @@ namespace Museo
             this.pnlBottom.Size = new System.Drawing.Size(991, 83);
             this.pnlBottom.TabIndex = 7;
             // 
+            // btnMpDetails
+            // 
+            this.btnMpDetails.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnMpDetails.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnMpDetails.FlatAppearance.BorderSize = 0;
+            this.btnMpDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMpDetails.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnMpDetails.Location = new System.Drawing.Point(641, 0);
+            this.btnMpDetails.Name = "btnMpDetails";
+            this.btnMpDetails.Size = new System.Drawing.Size(124, 83);
+            this.btnMpDetails.TabIndex = 8;
+            this.btnMpDetails.Text = "Modifier les détails";
+            this.btnMpDetails.UseVisualStyleBackColor = false;
+            this.btnMpDetails.Click += new System.EventHandler(this.btnMpDetails_click);
+            // 
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.SteelBlue;
@@ -73,6 +88,7 @@ namespace Museo
             this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "Ajouter";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // lblNbOfMasterpieces
             // 
@@ -150,21 +166,6 @@ namespace Museo
             this.mnuItemDelete.Size = new System.Drawing.Size(129, 22);
             this.mnuItemDelete.Text = "Supprimer";
             this.mnuItemDelete.Click += new System.EventHandler(this.mnuItemDelete_Click);
-            // 
-            // btnMpDetails
-            // 
-            this.btnMpDetails.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnMpDetails.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnMpDetails.FlatAppearance.BorderSize = 0;
-            this.btnMpDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMpDetails.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnMpDetails.Location = new System.Drawing.Point(641, 0);
-            this.btnMpDetails.Name = "btnMpDetails";
-            this.btnMpDetails.Size = new System.Drawing.Size(124, 83);
-            this.btnMpDetails.TabIndex = 8;
-            this.btnMpDetails.Text = "Modifier les détails";
-            this.btnMpDetails.UseVisualStyleBackColor = false;
-            this.btnMpDetails.Click += new System.EventHandler(this.btnMpDetails_click);
             // 
             // FrmAdminMasterpieces
             // 

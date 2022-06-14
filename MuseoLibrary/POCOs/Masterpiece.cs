@@ -23,6 +23,6 @@ namespace MuseoLibrary
         public string Desc { get; set; }
         public string Memo { get; set; }
         public string URL { get; set; }
-        public string Ncda { get; set; }
+        public int Ncda { get; set; }
     }
 }

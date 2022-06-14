@@ -39,6 +39,7 @@ namespace Museo
             this.mnuItemView = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemUpdate = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.pnlBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExhibitions)).BeginInit();
@@ -48,6 +49,7 @@ namespace Museo
             // pnlBottom
             // 
             this.pnlBottom.BackColor = System.Drawing.Color.SkyBlue;
+            this.pnlBottom.Controls.Add(this.btnAdd);
             this.pnlBottom.Controls.Add(this.lblNbOfExhibitions);
             this.pnlBottom.Controls.Add(this.picLogo);
             this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -133,6 +135,21 @@ namespace Museo
             this.mnuItemDelete.Text = "Supprimer";
             this.mnuItemDelete.Click += new System.EventHandler(this.mnuItemDelete_Click);
             // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAdd.Location = new System.Drawing.Point(765, 0);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(124, 83);
+            this.btnAdd.TabIndex = 6;
+            this.btnAdd.Text = "Ajouter";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // FrmAdminExhibitions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -164,5 +181,6 @@ namespace Museo
         private System.Windows.Forms.ToolStripMenuItem mnuItemView;
         private System.Windows.Forms.ToolStripMenuItem mnuItemUpdate;
         private System.Windows.Forms.ToolStripMenuItem mnuItemDelete;
+        private System.Windows.Forms.Button btnAdd;
     }
 }

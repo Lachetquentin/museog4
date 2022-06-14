@@ -55,7 +55,7 @@ namespace Museo
             this.txtURL.Location = new System.Drawing.Point(286, 123);
             this.txtURL.Name = "txtURL";
             this.txtURL.Size = new System.Drawing.Size(271, 37);
-            this.txtURL.TabIndex = 37;
+            this.txtURL.TabIndex = 4;
             // 
             // lblURL
             // 
@@ -72,7 +72,7 @@ namespace Museo
             this.txtIsni.Location = new System.Drawing.Point(286, 55);
             this.txtIsni.Name = "txtIsni";
             this.txtIsni.Size = new System.Drawing.Size(271, 37);
-            this.txtIsni.TabIndex = 35;
+            this.txtIsni.TabIndex = 2;
             // 
             // btnReset
             // 
@@ -83,7 +83,7 @@ namespace Museo
             this.btnReset.Location = new System.Drawing.Point(284, 258);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(271, 40);
-            this.btnReset.TabIndex = 27;
+            this.btnReset.TabIndex = 7;
             this.btnReset.Text = "Réinitialiser";
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -105,7 +105,7 @@ namespace Museo
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDesc.Size = new System.Drawing.Size(272, 203);
-            this.txtDesc.TabIndex = 22;
+            this.txtDesc.TabIndex = 5;
             this.txtDesc.UseSystemPasswordChar = true;
             // 
             // lblNcda
@@ -127,7 +127,7 @@ namespace Museo
             this.btnQuit.Location = new System.Drawing.Point(286, 315);
             this.btnQuit.Name = "btnQuit";
             this.btnQuit.Size = new System.Drawing.Size(271, 40);
-            this.btnQuit.TabIndex = 5;
+            this.btnQuit.TabIndex = 8;
             this.btnQuit.Text = "Quitter";
             this.btnQuit.UseVisualStyleBackColor = false;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
@@ -161,7 +161,7 @@ namespace Museo
             this.btnUpdate.Location = new System.Drawing.Point(286, 200);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(271, 40);
-            this.btnUpdate.TabIndex = 4;
+            this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "Valider";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -202,7 +202,7 @@ namespace Museo
             this.txtDob.Location = new System.Drawing.Point(9, 123);
             this.txtDob.Name = "txtDob";
             this.txtDob.Size = new System.Drawing.Size(271, 37);
-            this.txtDob.TabIndex = 38;
+            this.txtDob.TabIndex = 3;
             // 
             // pnlTop
             // 

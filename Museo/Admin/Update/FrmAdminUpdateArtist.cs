@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Forms;
 using MuseoLibrary;
@@ -16,8 +15,8 @@ namespace Museo
             InitializeComponent();
             artistId = selectedArtistId;
             _refreshArtists = refreshArtists;
-            artist = DataLayer.ArtistData.GetArtistById(artistId);
-            Text = "Modification d'un artiste";
+            AcceptButton = btnUpdate;
+            CancelButton = btnQuit;
         }
 
         private void FrmAdminUpdateArtist_Load(object sender, EventArgs e)
@@ -27,12 +26,18 @@ namespace Museo
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (Utils.Checker(txtDesc.Text) || Utils.Checker(txtName.Text)
+                || Utils.Checker(txtIsni.Text) || Utils.Checker(txtURL.Text) || Utils.Checker(txtDob.Text))
+            {
+                FrmMain.MessageShow("NullOrWhiteSpace");
+                return;
+            }
+
             DateTime dob = new DateTime();
             try
             {
                 CultureInfo ci = CultureInfo.InvariantCulture;
                 dob = DateTime.ParseExact(txtDob.Text, "dd/MM/yyyy", ci);
-                MessageBox.Show(dob.Date.ToShortDateString());
             }
             catch (Exception)
             {
@@ -65,6 +70,7 @@ namespace Museo
 
         private void SetupForm()
         {
+            artist = DataLayer.ArtistData.GetArtistById(artistId);
             txtDob.Text = artist.Dob.ToShortDateString();
             txtName.Text = artist.Name;
             txtDesc.Text = artist.Desc;

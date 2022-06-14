@@ -14,6 +14,8 @@ namespace Museo
             InitializeComponent();
             statusId = selectedStatusId;
             _refreshStatus = refreshStatus;
+            AcceptButton = btnUpdate;
+            CancelButton = btnQuit;
         }
 
         private void FrmAdminUpdateStatus_Load(object sender, EventArgs e)
@@ -23,6 +25,12 @@ namespace Museo
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (Utils.Checker(txtName.Text))
+            {
+                FrmMain.MessageShow("NullOrWhiteSpace");
+                return;
+            }
+
             if (DataLayer.MpStatusData.UpdateStatus(statusId, txtName.Text))
             {
                 MessageBox.Show("Le status à bien été mise à jour !");

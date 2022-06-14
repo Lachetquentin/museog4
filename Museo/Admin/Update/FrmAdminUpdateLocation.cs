@@ -14,6 +14,8 @@ namespace Museo
             InitializeComponent();
             locationId = selectedExhibitionId;
             _refreshLocations = refreshLocations;
+            AcceptButton = btnUpdate;
+            CancelButton = btnQuit;
         }
 
         private void FrmAdminUpdateLocation_Load(object sender, EventArgs e)

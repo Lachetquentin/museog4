@@ -79,5 +79,10 @@ namespace MuseoLibrary
             
             return success;
         }
+
+        public static bool Checker(string value)
+        {
+            return string.IsNullOrWhiteSpace(value);
+        }
     }
 }

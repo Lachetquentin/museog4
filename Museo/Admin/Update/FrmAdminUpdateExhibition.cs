@@ -1,6 +1,5 @@
 ﻿using MuseoLibrary;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Museo
@@ -15,6 +14,8 @@ namespace Museo
             InitializeComponent();
             exhibitionId = selectedExhibitionId;
             _refreshExhibitions = refreshExhibitions;
+            AcceptButton = btnUpdate;
+            CancelButton = btnQuit;
         }
 
         private void FrmAdminUpdateExhibition_Load(object sender, EventArgs e)
@@ -24,6 +25,12 @@ namespace Museo
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (Utils.Checker(txtName.Text))
+            {
+                FrmMain.MessageShow("NullOrWhiteSpace");
+                return;
+            }
+
             if (DataLayer.ExhibitionData.UpdateExhibition(exhibitionId, txtName.Text))
             {
                 MessageBox.Show("L'exposition à bien été mise à jour !");

@@ -68,6 +68,12 @@ namespace Museo
         {
             if (selectedUserId == 0) { return; }
 
+            if (Utils.CheckIfItsMe(user, selectedUserId))
+            {
+                FrmMain.MessageShow("UpdatingYourself");
+                return;
+            }
+
             if (!DataLayer.UserData.CheckIfUserExists(selectedUserId))
             {
                 FrmMain.MessageShow("NonExisting");
@@ -75,8 +81,8 @@ namespace Museo
                 return;
             }
 
-            //FrmAdminUpdateUser frm = new FrmAdminUpdateUser(selectedUserId, RefreshUsers);
-            //frm.ShowDialog();
+            FrmAdminUpdateUser frm = new FrmAdminUpdateUser(selectedUserId, RefreshUsers);
+            frm.ShowDialog();
         }
 
         private void RefreshUsers()
@@ -88,6 +94,12 @@ namespace Museo
         {
             if (userId == 0) { return; }
 
+            if (Utils.CheckIfItsMe(user, selectedUserId))
+            {
+                FrmMain.MessageShow("UpdatingYourself");
+                return;
+            }
+
             if (!DataLayer.UserData.CheckIfUserExists(userId))
             {
                 FrmMain.MessageShow("NonExisting");
@@ -95,8 +107,8 @@ namespace Museo
                 return;
             }
 
-            //FrmAdminUpdateUser frm = new FrmAdminUpdateUser(userId);
-            //frm.ShowDialog();
+            FrmAdminUpdateUser frm = new FrmAdminUpdateUser(userId, RefreshUsers);
+            frm.ShowDialog();
         }
 
         private void dgvUsers_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
@@ -139,6 +151,12 @@ namespace Museo
                 ht = dgvUsers.HitTest(e.X, e.Y);
                 if (ht.Type == DataGridViewHitTestType.Cell) { mnuOptions.Show(Cursor.Position.X, Cursor.Position.Y); }
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            FrmAdminCreateUser frm = new FrmAdminCreateUser(RefreshUsers);
+            frm.ShowDialog();
         }
     }
 }

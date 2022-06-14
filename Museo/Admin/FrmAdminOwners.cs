@@ -75,8 +75,8 @@ namespace Museo
                 return;
             }
 
-            //FrmAdminUpdateOwner frm = new FrmAdminUpdateOwner(selectedOwnerId, RefreshOwners);
-            //frm.ShowDialog();
+            FrmAdminUpdateOwner frm = new FrmAdminUpdateOwner(selectedOwnerId, RefreshOwners);
+            frm.ShowDialog();
         }
 
         private void RefreshOwners()
@@ -95,8 +95,8 @@ namespace Museo
                 return;
             }
 
-            //FrmAdminUpdateOwner frm = new FrmAdminUpdateOwner(ownerId, RefreshOwners);
-            //frm.ShowDialog();
+            FrmAdminUpdateOwner frm = new FrmAdminUpdateOwner(ownerId, RefreshOwners);
+            frm.ShowDialog();
         }
 
         private void dgvOwners_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
@@ -139,6 +139,12 @@ namespace Museo
                 ht = dgvOwners.HitTest(e.X, e.Y);
                 if (ht.Type == DataGridViewHitTestType.Cell) { mnuOptions.Show(Cursor.Position.X, Cursor.Position.Y); }
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            FrmAdminCreateOwner frm = new FrmAdminCreateOwner(RefreshOwners);
+            frm.ShowDialog();
         }
     }
 }

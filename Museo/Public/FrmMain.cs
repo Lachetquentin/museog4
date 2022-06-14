@@ -121,6 +121,12 @@ namespace Museo
                 case "InvalidDate":
                     msg = "La saisie de la date est incorrecte !";
                     break;
+                case "UpdatingYourself":
+                    msg = "Vous ne pouvez pas vous modifiez vous-même !";
+                    break;
+                case "CreationFailed":
+                    msg = "La création à échoué !";
+                    break;
                 default:
                     msg = "Error : " + msgCode;
                     break;

@@ -105,8 +105,8 @@ namespace Museo
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //FrmAdminCreateStatus frm = new FrmAdminCreateStatus();
-            //frm.ShowDialog();
+            FrmAdminCreateStatus frm = new FrmAdminCreateStatus(RefreshStatus);
+            frm.ShowDialog();
         }
 
         private void mnuItemUpdate_Click(object sender, EventArgs e)
