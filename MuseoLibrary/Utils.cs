@@ -68,8 +68,7 @@ namespace MuseoLibrary
 
                 if (user.Username.Equals(username))
                 {
-                    if(user.Password.Equals(password)) { return success = true; }
-                    //if (BCrypt.Net.BCrypt.Verify(password, user.Password)) { return success = true; }
+                    if (BCrypt.Net.BCrypt.Verify(password, user.Password)) { return success = true; }
                 }
             }
             catch (Exception)

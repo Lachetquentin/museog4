@@ -34,9 +34,7 @@ namespace Museo
                 return;
             }
 
-            string pw = Utils.EncryptPassword(txtPwd.Text);
-
-            if (DataLayer.UserData.AddUser(txtName.Text, txtEmail.Text, pw))
+            if (DataLayer.UserData.AddUser(txtName.Text, txtEmail.Text, txtPwd.Text))
             {
                 MessageBox.Show("L'administrateur à bien été crée !");
                 _refreshUsers();
