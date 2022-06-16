@@ -2,6 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>museo.pfx</AssemblyOriginatorKeyFile>
+    <Authors>Da Vinci Code</Authors>
+    <Description>Librairie de l'application Museo</Description>
+    <Copyright>Da Vinci Code</Copyright>
+    <PackageProjectUrl>https://github.com/Lachetquentin/museog4/</PackageProjectUrl>
+    <PackageIcon>museum.png</PackageIcon>
+    <PackageIconUrl />
+    <ApplicationIcon>museum.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,6 +33,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="D:\DL\museum.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

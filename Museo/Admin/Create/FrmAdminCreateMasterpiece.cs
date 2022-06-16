@@ -25,6 +25,12 @@ namespace Museo
                 return;
             }
 
+            if (txtCreationYear.Text.Length > 4)
+            {
+                MessageBox.Show("Année trop longue ! Un maximum de 4 chiffres est autorisé !");
+                return;
+            }
+
             int creationYear;
 
             if (int.TryParse(txtCreationYear.Text, out int value))
@@ -34,6 +40,12 @@ namespace Museo
             else
             {
                 FrmMain.MessageShow("CreationFailed");
+                return;
+            }
+
+            if (txtNcda.Text.Length > 9)
+            {
+                MessageBox.Show("NCDA trop long ! Un maximum de 9 chiffres est autorisé !");
                 return;
             }
 

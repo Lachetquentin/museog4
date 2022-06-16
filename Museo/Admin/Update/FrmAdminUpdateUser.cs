@@ -25,25 +25,38 @@ namespace Museo
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (Utils.Checker(txtName.Text) || Utils.Checker(txtPwd.Text) || Utils.Checker(txtEmail.Text))
+            if (Utils.Checker(txtName.Text) || Utils.Checker(txtEmail.Text))
             {
                 FrmMain.MessageShow("NullOrWhiteSpace");
                 return;
             }
 
-            string pw = Utils.EncryptPassword(txtPwd.Text);
-
-            if (DataLayer.UserData.UpdateUser(userId, txtName.Text, txtEmail.Text, pw))
+            if (Utils.Checker(txtPwd.Text))
             {
-                MessageBox.Show("L'administrateur à bien été mis à jour !");
-                _refreshUsers();
-                Close();
+                if (DataLayer.UserData.UpdateUser(userId, txtName.Text, txtEmail.Text))
+                {
+                    MessageBox.Show("L'administrateur à bien été mis à jour !");
+                    _refreshUsers();
+                    Close();
+                }
+                else
+                {
+                    FrmMain.MessageShow("UpdateFailed");
+                }
             }
             else
             {
-                FrmMain.MessageShow("UpdateFailed");
+                if (DataLayer.UserData.UpdateUser(userId, txtName.Text, txtEmail.Text, txtPwd.Text))
+                {
+                    MessageBox.Show("L'administrateur à bien été mis à jour !");
+                    _refreshUsers();
+                    Close();
+                }
+                else
+                {
+                    FrmMain.MessageShow("UpdateFailed");
+                }
             }
-
         }
 
         private void btnReset_Click(object sender, EventArgs e)

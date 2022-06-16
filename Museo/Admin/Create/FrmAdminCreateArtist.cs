@@ -42,7 +42,25 @@ namespace Museo
                 return;
             }
 
-            if (DataLayer.ArtistData.AddArtist(txtName.Text, dob.Date, txtDesc.Text, txtURL.Text, txtIsni.Text))
+            if(txtIsni.Text.Length > 9)
+            {
+                MessageBox.Show("ISNI trop long ! Un maximum de 9 chiffres est autorisé !");
+                return;
+            }
+
+            int isni;
+
+            if (int.TryParse(txtIsni.Text, out int result))
+            {
+                isni = result;
+            }
+            else
+            {
+                FrmMain.MessageShow("UpdateFailed");
+                return;
+            }
+
+            if (DataLayer.ArtistData.AddArtist(txtName.Text, dob.Date, txtDesc.Text, txtURL.Text, isni))
             {
                 MessageBox.Show("L'artiste à bien été mis crée !");
                 _refreshArtists();

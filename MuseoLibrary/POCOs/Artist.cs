@@ -16,6 +16,6 @@ namespace MuseoLibrary
         public DateTime Dob { get; set; }
         public string Desc { get; set; }
         public string URL { get; set; }
-        public string Isni { get; set; }
+        public int Isni { get; set; }
     }
 }

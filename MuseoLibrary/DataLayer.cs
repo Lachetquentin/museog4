@@ -9,7 +9,7 @@ namespace MuseoLibrary
         public static IDatabase s_db = new Database(new MySql.Data.MySqlClient.MySqlConnection(Properties.Resources.ConnString));
         public static class ArtistData
         {
-            public static bool AddArtist(string name, DateTime dob, string desc, string url, string isni)
+            public static bool AddArtist(string name, DateTime dob, string desc, string url, int isni)
             {
                 try
                 {
@@ -122,7 +122,7 @@ namespace MuseoLibrary
                 return listofArtists;
             }
 
-            public static bool UpdateArtist(int artistId, string name, DateTime dob, string desc, string url, string isni)
+            public static bool UpdateArtist(int artistId, string name, DateTime dob, string desc, string url, int isni)
             {
                 try
                 {
@@ -901,6 +901,21 @@ namespace MuseoLibrary
                     user.Username = username;
                     user.Email = email;
                     user.Password = Utils.EncryptPassword(password);
+                    s_db.Update(user);
+                    return true;
+                }
+                catch (Exception) { return false; }
+                finally { s_db.Connection.Close(); }
+            }
+
+            public static bool UpdateUser(int userId, string username, string email)
+            {
+                try
+                {
+                    s_db.Connection.Open();
+                    var user = s_db.SingleById<User>(userId);
+                    user.Username = username;
+                    user.Email = email;
                     s_db.Update(user);
                     return true;
                 }

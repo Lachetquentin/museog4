@@ -28,6 +28,12 @@ namespace Museo
                 return;
             }
 
+            if (txtCreationYear.Text.Length > 4)
+            {
+                MessageBox.Show("Année trop long ! Un maximum de 4 chiffres est autorisé !");
+                return;
+            }
+
             int creationYear;
 
             if (int.TryParse(txtCreationYear.Text, out int value))
@@ -37,6 +43,12 @@ namespace Museo
             else
             {
                 FrmMain.MessageShow("UpdateFailed");
+                return;
+            }
+
+            if (txtNcda.Text.Length > 9)
+            {
+                MessageBox.Show("NCDA trop long ! Un maximum de 9 chiffres est autorisé !");
                 return;
             }
 
@@ -85,27 +97,40 @@ namespace Museo
             List<Artist> listOfArtists = DataLayer.ArtistData.GetAllArtists();
             List<Exhibition> exhibition = DataLayer.ExhibitionData.GetAllExhibitions();
             List<Location> location = DataLayer.LocationData.GetAllLocations();
-            List<MpState> mpState = DataLayer.MpStateData.GetAllStates();
+            List<MpState> state = DataLayer.MpStateData.GetAllStates();
             List<MpStatus> status = DataLayer.MpStatusData.GetAllStatus();
             List<Owner> owner = DataLayer.OwnerData.GetAllOwners();
 
+            Artist artist = DataLayer.ArtistData.GetArtistById(mp.ArtistId);
+            Exhibition exh = DataLayer.ExhibitionData.GetExhibitionById(mp.ExhibitionId);
+            Location loc = DataLayer.LocationData.GetLocationById(mp.LocationId);
+            MpState mpState = DataLayer.MpStateData.GetStateById(mp.StateId);
+            MpStatus mpStatus = DataLayer.MpStatusData.GetStatusById(mp.StatusId);
+            Owner own = DataLayer.OwnerData.GetOwnerById(mp.OwnerId);
+
             cbAuthor.DataSource = listOfArtists;
             cbAuthor.DisplayMember = "Name";
+            cbAuthor.SelectedIndex = cbAuthor.FindString(artist.Name);
 
             cbExhibition.DataSource = exhibition;
             cbExhibition.DisplayMember = "Name";
+            cbExhibition.SelectedIndex = cbExhibition.FindString(exh.Name);
 
             cbLocation.DataSource = location;
             cbLocation.DisplayMember = "Name";
+            cbLocation.SelectedIndex = cbLocation.FindString(loc.Name);
 
-            cbState.DataSource = mpState;
+            cbState.DataSource = state;
             cbState.DisplayMember = "Name";
+            cbState.SelectedIndex = cbState.FindString(mpState.Name);
 
             cbStatus.DataSource = status;
             cbStatus.DisplayMember = "Name";
+            cbStatus.SelectedIndex = cbStatus.FindString(mpStatus.Name);
 
             cbOwner.DataSource = owner;
             cbOwner.DisplayMember = "Name";
+            cbOwner.SelectedIndex = cbOwner.FindString(own.Name);
 
             txtName.Text = mp.Name;
             txtDesc.Text = mp.Desc;

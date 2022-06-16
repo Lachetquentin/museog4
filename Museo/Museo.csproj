@@ -12,6 +12,8 @@
     <PackageProjectUrl>https://github.com/Lachetquentin/museog4/</PackageProjectUrl>
     <PackageIcon>museum.png</PackageIcon>
     <PackageIconUrl />
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>museo.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>

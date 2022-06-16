@@ -32,6 +32,7 @@ namespace Museo
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdminExhibitions));
             this.pnlBottom = new System.Windows.Forms.Panel();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.lblNbOfExhibitions = new System.Windows.Forms.Label();
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.dgvExhibitions = new System.Windows.Forms.DataGridView();
@@ -39,7 +40,6 @@ namespace Museo
             this.mnuItemView = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemUpdate = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.pnlBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExhibitions)).BeginInit();
@@ -57,6 +57,21 @@ namespace Museo
             this.pnlBottom.Name = "pnlBottom";
             this.pnlBottom.Size = new System.Drawing.Size(991, 83);
             this.pnlBottom.TabIndex = 9;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAdd.Location = new System.Drawing.Point(765, 0);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(124, 83);
+            this.btnAdd.TabIndex = 6;
+            this.btnAdd.Text = "Ajouter";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // lblNbOfExhibitions
             // 
@@ -101,7 +116,7 @@ namespace Museo
             this.dgvExhibitions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvExhibitions.Size = new System.Drawing.Size(991, 600);
             this.dgvExhibitions.TabIndex = 10;
-            this.dgvExhibitions.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvExhibitions_CellDoubleClick);
+            this.dgvExhibitions.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvExhibitions_CellDoubleClick);
             this.dgvExhibitions.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvExhibitions_CellMouseDown);
             this.dgvExhibitions.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvExhibitions_MouseClick);
             // 
@@ -134,21 +149,6 @@ namespace Museo
             this.mnuItemDelete.Size = new System.Drawing.Size(129, 22);
             this.mnuItemDelete.Text = "Supprimer";
             this.mnuItemDelete.Click += new System.EventHandler(this.mnuItemDelete_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAdd.Location = new System.Drawing.Point(765, 0);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(124, 83);
-            this.btnAdd.TabIndex = 6;
-            this.btnAdd.Text = "Ajouter";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // FrmAdminExhibitions
             // 

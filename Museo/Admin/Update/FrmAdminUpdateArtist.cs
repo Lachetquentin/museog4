@@ -33,7 +33,7 @@ namespace Museo
                 return;
             }
 
-            DateTime dob = new DateTime();
+            DateTime dob;
             try
             {
                 CultureInfo ci = CultureInfo.InvariantCulture;
@@ -44,8 +44,26 @@ namespace Museo
                 FrmMain.MessageShow("InvalidDate");
                 return;
             }
-            
-            if(DataLayer.ArtistData.UpdateArtist(artistId, txtName.Text, dob.Date, txtDesc.Text, txtURL.Text, txtIsni.Text))
+
+            if (txtIsni.Text.Length > 9)
+            {
+                MessageBox.Show("ISNI trop long ! Un maximum de 9 chiffres est autorisé !");
+                return;
+            }
+
+            int isni;
+
+            if (int.TryParse(txtIsni.Text, out int result))
+            {
+                isni = result;
+            }
+            else
+            {
+                FrmMain.MessageShow("UpdateFailed");
+                return;
+            }
+
+            if (DataLayer.ArtistData.UpdateArtist(artistId, txtName.Text, dob.Date, txtDesc.Text, txtURL.Text, isni))
             {
                 MessageBox.Show("L'artiste à bien été mis à jour !");
                 _refreshArtists();
@@ -74,7 +92,7 @@ namespace Museo
             txtDob.Text = artist.Dob.ToShortDateString();
             txtName.Text = artist.Name;
             txtDesc.Text = artist.Desc;
-            txtIsni.Text = artist.Isni;
+            txtIsni.Text = artist.Isni.ToString();
             txtURL.Text = artist.URL;
         }       
     }
