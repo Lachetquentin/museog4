@@ -164,7 +164,7 @@ namespace Museo
             this.dgvArtists.RowTemplate.Height = 25;
             this.dgvArtists.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvArtists.ShowCellToolTips = false;
-            this.dgvArtists.Size = new System.Drawing.Size(991, 600);
+            this.dgvArtists.Size = new System.Drawing.Size(991, 517);
             this.dgvArtists.TabIndex = 12;
             this.dgvArtists.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArtists_CellDoubleClick);
             this.dgvArtists.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvArtists_CellMouseDown);
@@ -205,8 +205,8 @@ namespace Museo
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(991, 600);
-            this.Controls.Add(this.pnlBottom);
             this.Controls.Add(this.dgvArtists);
+            this.Controls.Add(this.pnlBottom);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAdminArtists";

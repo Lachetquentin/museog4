@@ -163,7 +163,7 @@ namespace Museo
             this.dgvExhibitions.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvExhibitions.RowTemplate.Height = 25;
             this.dgvExhibitions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvExhibitions.Size = new System.Drawing.Size(991, 600);
+            this.dgvExhibitions.Size = new System.Drawing.Size(991, 517);
             this.dgvExhibitions.TabIndex = 10;
             this.dgvExhibitions.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvExhibitions_CellDoubleClick);
             this.dgvExhibitions.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvExhibitions_CellMouseDown);
@@ -204,8 +204,8 @@ namespace Museo
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(991, 600);
-            this.Controls.Add(this.pnlBottom);
             this.Controls.Add(this.dgvExhibitions);
+            this.Controls.Add(this.pnlBottom);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAdminExhibitions";

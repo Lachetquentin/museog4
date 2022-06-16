@@ -37,14 +37,14 @@ namespace Museo
             this.pnlTop = new System.Windows.Forms.Panel();
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.pnlBottom = new System.Windows.Forms.Panel();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.mnuOptions = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.mnuItemUpdate = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.lblNbOfOwners = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.mnuOptions = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnuItemUpdate = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOwners)).BeginInit();
             this.pnlMain.SuspendLayout();
             this.pnlTop.SuspendLayout();
@@ -135,43 +135,6 @@ namespace Museo
             this.pnlBottom.Size = new System.Drawing.Size(1128, 48);
             this.pnlBottom.TabIndex = 18;
             // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAdd.Location = new System.Drawing.Point(1004, 0);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(124, 48);
-            this.btnAdd.TabIndex = 6;
-            this.btnAdd.Text = "Ajouter";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // mnuOptions
-            // 
-            this.mnuOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuItemUpdate,
-            this.mnuItemDelete});
-            this.mnuOptions.Name = "mnuMasterpieces";
-            this.mnuOptions.Size = new System.Drawing.Size(130, 48);
-            // 
-            // mnuItemUpdate
-            // 
-            this.mnuItemUpdate.Name = "mnuItemUpdate";
-            this.mnuItemUpdate.Size = new System.Drawing.Size(129, 22);
-            this.mnuItemUpdate.Text = "Modifier";
-            this.mnuItemUpdate.Click += new System.EventHandler(this.mnuItemUpdate_Click);
-            // 
-            // mnuItemDelete
-            // 
-            this.mnuItemDelete.Name = "mnuItemDelete";
-            this.mnuItemDelete.Size = new System.Drawing.Size(129, 22);
-            this.mnuItemDelete.Text = "Supprimer";
-            this.mnuItemDelete.Click += new System.EventHandler(this.mnuItemDelete_Click);
-            // 
             // lblNbOfOwners
             // 
             this.lblNbOfOwners.AutoSize = true;
@@ -224,6 +187,43 @@ namespace Museo
             this.txtSearch.PlaceholderText = "Recherche...";
             this.txtSearch.Size = new System.Drawing.Size(292, 20);
             this.txtSearch.TabIndex = 14;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAdd.Location = new System.Drawing.Point(1004, 0);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(124, 48);
+            this.btnAdd.TabIndex = 6;
+            this.btnAdd.Text = "Ajouter";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // mnuOptions
+            // 
+            this.mnuOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuItemUpdate,
+            this.mnuItemDelete});
+            this.mnuOptions.Name = "mnuMasterpieces";
+            this.mnuOptions.Size = new System.Drawing.Size(130, 48);
+            // 
+            // mnuItemUpdate
+            // 
+            this.mnuItemUpdate.Name = "mnuItemUpdate";
+            this.mnuItemUpdate.Size = new System.Drawing.Size(129, 22);
+            this.mnuItemUpdate.Text = "Modifier";
+            this.mnuItemUpdate.Click += new System.EventHandler(this.mnuItemUpdate_Click);
+            // 
+            // mnuItemDelete
+            // 
+            this.mnuItemDelete.Name = "mnuItemDelete";
+            this.mnuItemDelete.Size = new System.Drawing.Size(129, 22);
+            this.mnuItemDelete.Text = "Supprimer";
+            this.mnuItemDelete.Click += new System.EventHandler(this.mnuItemDelete_Click);
             // 
             // FrmAdminOwners
             // 
