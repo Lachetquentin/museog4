@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using MuseoLibrary;
 
@@ -16,11 +17,13 @@ namespace Museo
         {
             RefreshExhibitions();
             Start();
+            AcceptButton = btnSearch;
         }
 
         internal void RefreshExhibitions()
         {
             dgvExhibitions.DataSource = DataLayer.ExhibitionData.GetAllExhibitions();
+            lblNbOfExhibitions.Text = "Nombre d'expositions : " + DataLayer.ExhibitionData.GetAllExhibitions().Count.ToString();
         }
 
         private void Start()
@@ -29,7 +32,8 @@ namespace Museo
             dgvExhibitions.ColumnHeadersDefaultCellStyle.SelectionBackColor = dgvExhibitions.ColumnHeadersDefaultCellStyle.BackColor;
             dgvExhibitions.Columns["ExhibitionId"].Visible = false;
             dgvExhibitions.Columns["Name"].HeaderText = "Nom de l'exposition";
-            lblNbOfExhibitions.Text = "Nombre d'expositions : " + DataLayer.ExhibitionData.GetAllExhibitions().Count.ToString();
+            txtSearch.AutoSize = false;
+            txtSearch.Height = 25;
         }
 
         private void mnuItemView_Click(object sender, EventArgs e)
@@ -143,6 +147,25 @@ namespace Museo
         {
             FrmAdminCreateExhibition frm = new FrmAdminCreateExhibition(RefreshExhibitions);
             frm.ShowDialog();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (Utils.Checker(txtSearch.Text))
+            {
+                FrmMain.MessageShow("NullOrWhiteSpace");
+                return;
+            }
+
+            List<Exhibition> ListOfExhibitions = DataLayer.ExhibitionData.SearchExhibitions(txtSearch.Text);
+            lblNbOfExhibitions.Text = "Nombre d'expositions : " + ListOfExhibitions.Count.ToString();
+            dgvExhibitions.DataSource = ListOfExhibitions;
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtSearch.Text = "";
+            RefreshExhibitions();
         }
     }
 }

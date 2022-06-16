@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using MuseoLibrary;
 
@@ -16,11 +17,13 @@ namespace Museo
         {
             RefreshArtists();
             Start();
+            AcceptButton = btnSearch;
         }
 
         internal void RefreshArtists()
         {
             dgvArtists.DataSource = DataLayer.ArtistData.GetAllArtists();
+            lblNbOfArtists.Text = "Nombre d'artistes : " + DataLayer.ArtistData.GetAllArtists().Count.ToString();
         }
 
         private void Start()
@@ -33,7 +36,8 @@ namespace Museo
             dgvArtists.Columns["Name"].HeaderText = "Nom";
             dgvArtists.Columns["Desc"].HeaderText = "Description";
             dgvArtists.Columns["Dob"].HeaderText = "Date de naissance";
-            lblNbOfArtists.Text = "Nombre d'artistes : " + DataLayer.ArtistData.GetAllArtists().Count.ToString();
+            txtSearch.AutoSize = false;
+            txtSearch.Height = 25;
         }
 
         private void mnuItemView_Click(object sender, EventArgs e)
@@ -154,6 +158,25 @@ namespace Museo
         {
             FrmAdminCreateArtist frm = new FrmAdminCreateArtist(RefreshArtists);
             frm.ShowDialog();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (Utils.Checker(txtSearch.Text))
+            {
+                FrmMain.MessageShow("NullOrWhiteSpace");
+                return;
+            }
+
+            List<Artist> ListOfArtists = DataLayer.ArtistData.SearchArtists(txtSearch.Text);
+            lblNbOfArtists.Text = "Nombre d'artistes : " + ListOfArtists.Count.ToString();
+            dgvArtists.DataSource = ListOfArtists;
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtSearch.Text = "";
+            RefreshArtists();
         }
     }
 }

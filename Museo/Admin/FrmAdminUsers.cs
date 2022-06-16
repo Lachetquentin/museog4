@@ -1,5 +1,6 @@
 ﻿using MuseoLibrary;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Museo
@@ -15,9 +16,9 @@ namespace Museo
         }
         private void FrmAdminUsers_Load(object sender, EventArgs e)
         {
-            lblTitle.Text = "Liste des administrateurs";
             RefreshUsers();
             GridSetup();
+            AcceptButton = btnSearch;
         }
 
         private void GridSetup()
@@ -27,6 +28,8 @@ namespace Museo
             dgvUsers.Columns["UserId"].Visible = false;
             dgvUsers.Columns["RoleId"].Visible = false;
             dgvUsers.Columns["Password"].Visible = false;
+            txtSearch.AutoSize = false;
+            txtSearch.Height = 25;
         }
 
         private void mnuItemUpdate_Click(object sender, EventArgs e)
@@ -88,6 +91,7 @@ namespace Museo
         private void RefreshUsers()
         {
             dgvUsers.DataSource = DataLayer.UserData.GetAllUsers();
+            lblNbOfUsers.Text = "Nombre d'administrateurs : " + DataLayer.UserData.GetAllUsers().Count.ToString();
         }
 
         private void UpdateUser(int userId)
@@ -157,6 +161,25 @@ namespace Museo
         {
             FrmAdminCreateUser frm = new FrmAdminCreateUser(RefreshUsers);
             frm.ShowDialog();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (Utils.Checker(txtSearch.Text))
+            {
+                FrmMain.MessageShow("NullOrWhiteSpace");
+                return;
+            }
+
+            List<User> users = DataLayer.UserData.SearchUsers(txtSearch.Text);
+            lblNbOfUsers.Text = "Nombre d'administrateurs : " + users.Count.ToString();
+            dgvUsers.DataSource = users;
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtSearch.Text = "";
+            RefreshUsers();
         }
     }
 }

@@ -37,6 +37,10 @@ namespace Museo
             this.pnlTop = new System.Windows.Forms.Panel();
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.pnlBottom = new System.Windows.Forms.Panel();
+            this.lblNbOfUsers = new System.Windows.Forms.Label();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.mnuOptions = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuItemUpdate = new System.Windows.Forms.ToolStripMenuItem();
@@ -92,9 +96,9 @@ namespace Museo
             this.lblTitle.Font = new System.Drawing.Font("Segoe Script", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTitle.Location = new System.Drawing.Point(0, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(102, 51);
+            this.lblTitle.Size = new System.Drawing.Size(459, 51);
             this.lblTitle.TabIndex = 1;
-            this.lblTitle.Text = "Title";
+            this.lblTitle.Text = "Liste des administrateurs";
             // 
             // pnlTop
             // 
@@ -120,12 +124,69 @@ namespace Museo
             // pnlBottom
             // 
             this.pnlBottom.BackColor = System.Drawing.Color.SkyBlue;
+            this.pnlBottom.Controls.Add(this.lblNbOfUsers);
+            this.pnlBottom.Controls.Add(this.btnClear);
+            this.pnlBottom.Controls.Add(this.btnSearch);
+            this.pnlBottom.Controls.Add(this.txtSearch);
             this.pnlBottom.Controls.Add(this.btnAdd);
             this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlBottom.Location = new System.Drawing.Point(0, 473);
             this.pnlBottom.Name = "pnlBottom";
             this.pnlBottom.Size = new System.Drawing.Size(1128, 48);
             this.pnlBottom.TabIndex = 15;
+            // 
+            // lblNbOfUsers
+            // 
+            this.lblNbOfUsers.AutoSize = true;
+            this.lblNbOfUsers.Font = new System.Drawing.Font("Segoe Script", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblNbOfUsers.Location = new System.Drawing.Point(12, 3);
+            this.lblNbOfUsers.Name = "lblNbOfUsers";
+            this.lblNbOfUsers.Size = new System.Drawing.Size(75, 30);
+            this.lblNbOfUsers.TabIndex = 13;
+            this.lblNbOfUsers.Text = "Count";
+            // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.Crimson;
+            this.btnClear.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClear.BackgroundImage")));
+            this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnClear.Location = new System.Drawing.Point(713, 1);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(27, 25);
+            this.btnClear.TabIndex = 12;
+            this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.BackgroundImage")));
+            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSearch.Location = new System.Drawing.Point(686, 1);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(27, 25);
+            this.btnSearch.TabIndex = 11;
+            this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.BackColor = System.Drawing.Color.White;
+            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtSearch.Location = new System.Drawing.Point(394, 3);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.PlaceholderText = "Recherche...";
+            this.txtSearch.Size = new System.Drawing.Size(292, 20);
+            this.txtSearch.TabIndex = 10;
             // 
             // btnAdd
             // 
@@ -183,6 +244,7 @@ namespace Museo
             this.pnlTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.pnlBottom.ResumeLayout(false);
+            this.pnlBottom.PerformLayout();
             this.mnuOptions.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -200,5 +262,9 @@ namespace Museo
         private System.Windows.Forms.ToolStripMenuItem mnuItemUpdate;
         private System.Windows.Forms.ToolStripMenuItem mnuItemDelete;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label lblNbOfUsers;
     }
 }

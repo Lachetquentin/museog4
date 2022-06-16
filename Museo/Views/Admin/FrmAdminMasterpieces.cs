@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using MuseoLibrary;
 
@@ -16,11 +17,13 @@ namespace Museo
         {
             RefreshMasterpieces();
             Start();
+            AcceptButton = btnSearch;
         }
 
         internal void RefreshMasterpieces()
         {
             dgvMasterpieces.DataSource = DataLayer.MasterpieceData.GetAllMasterpieces();
+            lblNbOfMasterpieces.Text = "Nombre d'oeuvres : " + DataLayer.MasterpieceData.GetAllMasterpieces().Count.ToString();
         }
 
         private void Start()
@@ -40,7 +43,8 @@ namespace Museo
             dgvMasterpieces.Columns["Name"].HeaderText = "Nom de l'oeuvre";
             dgvMasterpieces.Columns["CreateYear"].HeaderText = "Date de création";
             dgvMasterpieces.Columns["Desc"].HeaderText = "Description";
-            lblNbOfMasterpieces.Text = "Nombre d'oeuvres : " + DataLayer.MasterpieceData.GetAllMasterpieces().Count.ToString();
+            txtSearch.AutoSize = false;
+            txtSearch.Height = 25;
         }
 
         private void mnuItemView_Click(object sender, EventArgs e)
@@ -152,6 +156,25 @@ namespace Museo
         {
             FrmAdminCreateMasterpiece frm = new FrmAdminCreateMasterpiece(RefreshMasterpieces);
             frm.ShowDialog();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (Utils.Checker(txtSearch.Text))
+            {
+                FrmMain.MessageShow("NullOrWhiteSpace");
+                return;
+            }
+
+            List<Masterpiece> masterpieces = DataLayer.MasterpieceData.SearchMasterpieces(txtSearch.Text);
+            lblNbOfMasterpieces.Text = "Nombre d'oeuvres : " + masterpieces.Count.ToString();
+            dgvMasterpieces.DataSource = masterpieces;
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtSearch.Text = "";
+            RefreshMasterpieces();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using MuseoLibrary;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Museo
@@ -13,9 +14,9 @@ namespace Museo
         }
         private void FrmAdminOwners_Load(object sender, EventArgs e)
         {
-            lblTitle.Text = "Liste des propriétaires";
             RefreshOwners();
             GridSetup();
+            AcceptButton = btnSearch;
         }
 
         private void GridSetup()
@@ -26,6 +27,8 @@ namespace Museo
             dgvOwners.Columns["Location"].HeaderText = "Emplacement";
             dgvOwners.Columns["Name"].HeaderText = "Nom";
             dgvOwners.Columns["PhoneNumber"].HeaderText = "Numéro de téléphone";
+            txtSearch.AutoSize = false;
+            txtSearch.Height = 25;
         }
 
         private void mnuItemUpdate_Click(object sender, EventArgs e)
@@ -82,6 +85,7 @@ namespace Museo
         private void RefreshOwners()
         {
             dgvOwners.DataSource = DataLayer.OwnerData.GetAllOwners();
+            lblNbOfOwners.Text = "Nombre de propriétaires : " + DataLayer.OwnerData.GetAllOwners().Count.ToString();
         }
 
         private void UpdateOwner(int ownerId)
@@ -145,6 +149,25 @@ namespace Museo
         {
             FrmAdminCreateOwner frm = new FrmAdminCreateOwner(RefreshOwners);
             frm.ShowDialog();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (Utils.Checker(txtSearch.Text))
+            {
+                FrmMain.MessageShow("NullOrWhiteSpace");
+                return;
+            }
+
+            List<Owner> owners = DataLayer.OwnerData.SearchOwners(txtSearch.Text);
+            lblNbOfOwners.Text = "Nombre d'administrateurs : " + owners.Count.ToString();
+            dgvOwners.DataSource = owners;
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtSearch.Text = "";
+            RefreshOwners();
         }
     }
 }

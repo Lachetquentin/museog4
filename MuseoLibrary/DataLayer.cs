@@ -100,20 +100,10 @@ namespace MuseoLibrary
             {
                 List<Artist> listofArtists = new();
 
-                Artist artist = new();
-
-                artist = GetArtistByName(name);
-
-                if (artist != null)
-                {
-                    listofArtists.Add(artist);
-                    return listofArtists;
-                }
-
                 try
                 {
                     s_db.Connection.Open();
-                    listofArtists = s_db.Fetch<Artist>("where name LIKE %@name%", name);
+                    listofArtists = s_db.Fetch<Artist>("where name LIKE '%"+name+"%'");
                     return listofArtists;
                 }
                 catch (Exception) { }
@@ -223,6 +213,22 @@ namespace MuseoLibrary
                 finally { s_db.Connection.Close(); }
 
                 return exhibition;
+            }
+
+            public static List<Exhibition> SearchExhibitions(string name)
+            {
+                List<Exhibition> listOfExhibitions = new();
+
+                try
+                {
+                    s_db.Connection.Open();
+                    listOfExhibitions = s_db.Fetch<Exhibition>("where name LIKE '%" + name + "%'");
+                    return listOfExhibitions;
+                }
+                catch (Exception) { }
+                finally { s_db.Connection.Close(); }
+
+                return listOfExhibitions;
             }
 
             public static bool UpdateExhibition(int exhibitionId, string name)
@@ -467,7 +473,7 @@ namespace MuseoLibrary
                 try
                 {
                     s_db.Connection.Open();
-                    listofMasterpieces = s_db.Fetch<Masterpiece>("where name LIKE %@name%", name);
+                    listofMasterpieces = s_db.Fetch<Masterpiece>("where name LIKE '%" + name + "%'");
                     return listofMasterpieces;
                 }
                 catch (Exception) { }
@@ -793,6 +799,22 @@ namespace MuseoLibrary
                 return owner;
             }
 
+            public static List<Owner> SearchOwners(string name)
+            {
+                List<Owner> listOfOwners = new();
+
+                try
+                {
+                    s_db.Connection.Open();
+                    listOfOwners = s_db.Fetch<Owner>("where name LIKE '%" + name + "%'");
+                    return listOfOwners;
+                }
+                catch (Exception) { }
+                finally { s_db.Connection.Close(); }
+
+                return listOfOwners;
+            }
+
             public static bool UpdateOwner(int ownerId, string location, string name, string email, string phoneNumber)
             {
                 try
@@ -890,6 +912,22 @@ namespace MuseoLibrary
                 finally { s_db.Connection.Close(); }
 
                 return user;
+            }
+
+            public static List<User> SearchUsers(string name)
+            {
+                List<User> listOfUsers = new();
+
+                try
+                {
+                    s_db.Connection.Open();
+                    listOfUsers = s_db.Fetch<User>("where name LIKE '%" + name + "%'");
+                    return listOfUsers;
+                }
+                catch (Exception) { }
+                finally { s_db.Connection.Close(); }
+
+                return listOfUsers;
             }
 
             public static bool UpdateUser(int userId, string username, string email, string password)
