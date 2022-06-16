@@ -64,6 +64,12 @@ namespace Museo
                 return;
             }
 
+            if (txtURL.Text.Length > 999)
+            {
+                MessageBox.Show("URL trop longue ! Un maximum de 999 caractères est autorisé !");
+                return;
+            }
+
             if (DataLayer.MasterpieceData.UpdateMasterpiece(mpId, (Artist)cbAuthor.SelectedItem, (Exhibition)cbExhibition.SelectedItem, (MpState)cbState.SelectedItem, (MpStatus)cbStatus.SelectedItem, (Location)cbLocation.SelectedItem, (Owner)cbOwner.SelectedItem, txtName.Text, creationYear, txtDesc.Text, txtMemo.Text, txtURL.Text, ncda))
             {
                 MessageBox.Show("L'oeuvre à bien été mise à jour !");

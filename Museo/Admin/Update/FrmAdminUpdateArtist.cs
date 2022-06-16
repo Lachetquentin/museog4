@@ -63,6 +63,12 @@ namespace Museo
                 return;
             }
 
+            if (txtURL.Text.Length > 999)
+            {
+                MessageBox.Show("URL trop longue ! Un maximum de 999 caractères est autorisé !");
+                return;
+            }
+
             if (DataLayer.ArtistData.UpdateArtist(artistId, txtName.Text, dob.Date, txtDesc.Text, txtURL.Text, isni))
             {
                 MessageBox.Show("L'artiste à bien été mis à jour !");
