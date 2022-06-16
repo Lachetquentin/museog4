@@ -89,14 +89,14 @@ namespace Museo
         private void ViewMasterpiece()
         {
             if (selectedMasterpieceId == 0) { return; }
-            FrmViewMasterpiece frm = new FrmViewMasterpiece(selectedMasterpieceId);
+            FrmAdminViewMasterpiece frm = new FrmAdminViewMasterpiece(selectedMasterpieceId);
             frm.ShowDialog();
         }
 
         private void ViewMasterpiece(int mpId)
         {
             if (selectedMasterpieceId == 0) { return; }
-            FrmViewMasterpiece frm = new FrmViewMasterpiece(mpId);
+            FrmAdminViewMasterpiece frm = new FrmAdminViewMasterpiece(mpId);
             frm.ShowDialog();
         }
 

@@ -1,7 +1,7 @@
 ﻿
 namespace Museo
 {
-    partial class FrmViewMasterpiece
+    partial class FrmAdminViewMasterpiece
     {
         /// <summary>
         /// Required designer variable.
@@ -29,19 +29,20 @@ namespace Museo
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmViewMasterpiece));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdminViewMasterpiece));
             this.lblExhibition = new System.Windows.Forms.Label();
             this.lblLocation = new System.Windows.Forms.Label();
             this.lblDesc = new System.Windows.Forms.Label();
-            this.lblArtist = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.lblArtist = new System.Windows.Forms.Label();
             this.picImage = new System.Windows.Forms.PictureBox();
             this.pnlTop = new System.Windows.Forms.Panel();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.picLogo = new System.Windows.Forms.PictureBox();
-            this.pnlBottom = new System.Windows.Forms.Panel();
             this.tblMain = new System.Windows.Forms.TableLayoutPanel();
             this.tblSecond = new System.Windows.Forms.TableLayoutPanel();
             this.tblThird = new System.Windows.Forms.TableLayoutPanel();
+            this.pnlBottom = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
@@ -81,6 +82,16 @@ namespace Museo
             this.lblDesc.TabIndex = 3;
             this.lblDesc.Text = "Desc";
             // 
+            // lblTitle
+            // 
+            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe Script", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTitle.Location = new System.Drawing.Point(3, 0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(619, 49);
+            this.lblTitle.TabIndex = 1;
+            this.lblTitle.Text = "Title";
+            // 
             // lblArtist
             // 
             this.lblArtist.AutoSize = true;
@@ -91,16 +102,6 @@ namespace Museo
             this.lblArtist.Size = new System.Drawing.Size(619, 75);
             this.lblArtist.TabIndex = 2;
             this.lblArtist.Text = "by Artist";
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe Script", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTitle.Location = new System.Drawing.Point(3, 0);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(619, 49);
-            this.lblTitle.TabIndex = 1;
-            this.lblTitle.Text = "Title";
             // 
             // picImage
             // 
@@ -115,12 +116,27 @@ namespace Museo
             // pnlTop
             // 
             this.pnlTop.BackColor = System.Drawing.Color.SkyBlue;
+            this.pnlTop.Controls.Add(this.btnLogin);
             this.pnlTop.Controls.Add(this.picLogo);
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTop.Location = new System.Drawing.Point(0, 0);
             this.pnlTop.Name = "pnlTop";
             this.pnlTop.Size = new System.Drawing.Size(1128, 65);
-            this.pnlTop.TabIndex = 3;
+            this.pnlTop.TabIndex = 7;
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnLogin.FlatAppearance.BorderSize = 0;
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogin.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnLogin.Location = new System.Drawing.Point(967, 12);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(149, 40);
+            this.btnLogin.TabIndex = 5;
+            this.btnLogin.Text = "Plus d\'informations";
+            this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // picLogo
             // 
@@ -132,15 +148,6 @@ namespace Museo
             this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picLogo.TabIndex = 1;
             this.picLogo.TabStop = false;
-            // 
-            // pnlBottom
-            // 
-            this.pnlBottom.BackColor = System.Drawing.Color.SkyBlue;
-            this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBottom.Location = new System.Drawing.Point(0, 506);
-            this.pnlBottom.Name = "pnlBottom";
-            this.pnlBottom.Size = new System.Drawing.Size(1128, 15);
-            this.pnlBottom.TabIndex = 6;
             // 
             // tblMain
             // 
@@ -155,7 +162,7 @@ namespace Museo
             this.tblMain.RowCount = 1;
             this.tblMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tblMain.Size = new System.Drawing.Size(1128, 441);
-            this.tblMain.TabIndex = 6;
+            this.tblMain.TabIndex = 8;
             // 
             // tblSecond
             // 
@@ -190,7 +197,16 @@ namespace Museo
             this.tblThird.Size = new System.Drawing.Size(834, 124);
             this.tblThird.TabIndex = 0;
             // 
-            // FrmViewMasterpiece
+            // pnlBottom
+            // 
+            this.pnlBottom.BackColor = System.Drawing.Color.SkyBlue;
+            this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlBottom.Location = new System.Drawing.Point(0, 506);
+            this.pnlBottom.Name = "pnlBottom";
+            this.pnlBottom.Size = new System.Drawing.Size(1128, 15);
+            this.pnlBottom.TabIndex = 9;
+            // 
+            // FrmAdminViewMasterpiece
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -200,10 +216,10 @@ namespace Museo
             this.Controls.Add(this.pnlBottom);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FrmViewMasterpiece";
+            this.Name = "FrmAdminViewMasterpiece";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Voir les oeuvres";
-            this.Load += new System.EventHandler(this.FrmViewMasterpiece_Load);
+            this.Text = "Voir une oeuvre";
+            this.Load += new System.EventHandler(this.FrmAdminViewMasterpiece_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picImage)).EndInit();
             this.pnlTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
@@ -216,17 +232,19 @@ namespace Museo
         }
 
         #endregion
-        private System.Windows.Forms.Panel pnlTop;
-        private System.Windows.Forms.Panel pnlBottom;
-        private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.PictureBox picImage;
-        private System.Windows.Forms.Label lblDesc;
-        private System.Windows.Forms.Label lblArtist;
-        private System.Windows.Forms.PictureBox picLogo;
+
         private System.Windows.Forms.Label lblExhibition;
         private System.Windows.Forms.Label lblLocation;
+        private System.Windows.Forms.Label lblDesc;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label lblArtist;
+        private System.Windows.Forms.PictureBox picImage;
+        private System.Windows.Forms.Panel pnlTop;
+        private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.TableLayoutPanel tblMain;
         private System.Windows.Forms.TableLayoutPanel tblSecond;
         private System.Windows.Forms.TableLayoutPanel tblThird;
+        private System.Windows.Forms.Panel pnlBottom;
+        private System.Windows.Forms.Button btnLogin;
     }
 }
